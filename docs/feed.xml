@@ -5,5 +5,13 @@
         <description>놓치면 손해 보는 돈 되는 이벤트 소식과 신규 회원가입 혜택(초대코드)을 빠르게 공유합니다.</description>
         <link>https://legoje.com/</link>
         <atom:link href="https://legoje.com/feed.xml" rel="self" type="application/rss+xml" />
+
+        <item>
+            <title>블로그 이전 및 경제 정보 포스팅 안내</title>
+            <link>https://legoje.com/first-post</link>
+            <description>정확하고 안전한 금융 및 재테크 정보를 전달하기 위해 블로그를 새롭게 단장했습니다. 앞으로 다양한 이벤트와 혜택 정보를 공유하겠습니다.</description>
+            <pubDate>Sun, 11 Jan 2026 00:00:00 +0900</pubDate>
+            <guid>https://legoje.com/first-post</guid>
+        </item>
     </channel>
 </rss>

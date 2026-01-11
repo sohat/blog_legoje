@@ -15,6 +15,9 @@ DOCS_DIR = Path("/Users/sohapark/Desktop/blog/dev/docs")
 # 원본 도메인
 ORIGINAL_DOMAIN = "legoje.com"
 
+# GitHub Pages 베이스 경로 (저장소 이름)
+BASE_PATH = "/blog_legoje"
+
 
 def clean_docs_dir():
     """docs 폴더 초기화"""
@@ -114,28 +117,28 @@ def fix_html_links():
 
         original_content = content
 
-        # 1. https://legoje.com/ -> /
+        # 1. https://legoje.com/ -> BASE_PATH/
         content = re.sub(
             r'https?://' + re.escape(ORIGINAL_DOMAIN) + r'/',
-            '/',
+            BASE_PATH + '/',
             content
         )
 
-        # 2. //legoje.com/ -> /
+        # 2. //legoje.com/ -> BASE_PATH/
         content = re.sub(
             r'//' + re.escape(ORIGINAL_DOMAIN) + r'/',
-            '/',
+            BASE_PATH + '/',
             content
         )
 
-        # 3. href="/" 형태의 루트 링크는 그대로 유지
+        # 3. href="/" -> href="BASE_PATH/"
+        content = re.sub(r'href="/"', f'href="{BASE_PATH}/"', content)
 
-        # 4. /wp-content/uploads/ 경로 유지 (이미 복사됨)
+        # 4. src="/ 또는 href="/wp-content 등 절대경로 수정
+        content = re.sub(r'(href|src|content)="(/[^"]*)"', lambda m: f'{m.group(1)}="{BASE_PATH}{m.group(2)}"', content)
 
-        # 5. /wp-content/cache/ 경로 유지 (이미 복사됨)
-
-        # 6. 불필요한 외부 스크립트 제거 (선택사항)
-        # Google Analytics, AdSense 등은 정적 사이트에서 불필요할 수 있음
+        # 5. 중복 BASE_PATH 제거 (이미 변환된 경우)
+        content = content.replace(BASE_PATH + BASE_PATH, BASE_PATH)
 
         if content != original_content:
             with open(html_file, 'w', encoding='utf-8') as f:

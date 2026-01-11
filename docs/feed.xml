@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>내가 궁금해서 시작한 블로그: 돈이 되는 경제 생활 &amp; 혜택 정보</title>
+        <description>놓치면 손해 보는 돈 되는 이벤트 소식과 신규 회원가입 혜택(초대코드)을 빠르게 공유합니다.</description>
+        <link>https://legoje.com/</link>
+        <atom:link href="https://legoje.com/feed.xml" rel="self" type="application/rss+xml" />
+    </channel>
+</rss>

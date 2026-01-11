@@ -15,8 +15,8 @@ DOCS_DIR = Path("/Users/sohapark/Desktop/blog/dev/docs")
 # 원본 도메인
 ORIGINAL_DOMAIN = "legoje.com"
 
-# GitHub Pages 베이스 경로 (저장소 이름)
-BASE_PATH = "/blog_legoje"
+# GitHub Pages 베이스 경로 (커스텀 도메인 사용시 빈 문자열)
+BASE_PATH = ""
 
 
 def clean_docs_dir():

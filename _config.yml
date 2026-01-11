@@ -1,0 +1,38 @@
+# 블로그 기본 정보 (수익형/혜택 정보 특화)
+title: "내가 궁금해서 시작한 블로그: 돈이 되는 경제 생활 & 혜택 정보"
+url: "https://legoje.com"
+description: >-
+  놓치면 손해 보는 돈 되는 이벤트 소식과 신규 회원가입 혜택(초대코드)을 빠르게 공유합니다. 
+  정부 지원 정책부터 금융기관 이벤트, 앱테크 정보까지 정확하게 수집하여 
+  실제 참여 후기와 함께 가장 확실한 수익 정보를 전달합니다.
+
+# 파일 경로 구조
+source: src
+destination: _site
+
+# 카테고리 정의 (수익화 중심)
+categories:
+  event:
+    name: "돈 되는 이벤트"
+    description: "금융권, 기업의 신규 혜택 및 경품 이벤트 소식"
+  referral:
+    name: "초대코드 & 혜택"
+    description: "회원가입 시 추가 혜택을 받는 추천인 코드 및 리워드 정보"
+  policy:
+    name: "정부 지원 정책"
+    description: "청년, 소상공인을 위한 실질적인 지원금 및 정책 정보"
+
+# 플러그인
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# RSS 피드 설정 (네이버/구글 수집용)
+feed:
+  path: /feed.xml
+
+# 빌드 제외
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules

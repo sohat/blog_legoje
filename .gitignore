@@ -1,11 +1,25 @@
-# 모든 파일 무시
-*
+# 1. 시스템 및 가상 환경 파일 (제외)
+.DS_Store
+Thumbs.db
+__pycache__/
+venv/
+.idea/
+.claude/
 
-# docs 폴더만 포함
-!docs/
-!docs/**
+# 2. 워드프레스 원본 및 백업 (제외)
+*.wpress
+wp-config.php
+*.log
 
-# 필수 파일
+# 3. 루트의 필수 파일 (반드시 포함)
 !.gitignore
+!ads.txt
+!sitemap.xml
+!robots.txt
 !build_static_site.py
 !extract_wpress.py
+!CLAUDE.md
+
+# 4. 배포용 폴더 (반드시 포함)
+!docs/
+!docs/**

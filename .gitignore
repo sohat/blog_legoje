@@ -13,7 +13,7 @@ wp-config.php
 
 # 3. 루트의 필수 파일 (반드시 포함)
 !.gitignore
-!ads.txt
+!docs/ads.txt
 !sitemap.xml
 !robots.txt
 !build_static_site.py

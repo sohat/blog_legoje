@@ -140,6 +140,9 @@ def fix_html_links():
         # 5. 중복 BASE_PATH 제거 (이미 변환된 경우)
         content = content.replace(BASE_PATH + BASE_PATH, BASE_PATH)
 
+        # 6. -optimized 접미사 제거 (실제 파일에는 없음)
+        content = re.sub(r'-optimized(\.(png|jpg|jpeg|webp|gif))', r'\1', content)
+
         if content != original_content:
             with open(html_file, 'w', encoding='utf-8') as f:
                 f.write(content)

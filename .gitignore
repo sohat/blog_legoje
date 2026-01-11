@@ -1,0 +1,11 @@
+# 모든 파일 무시
+*
+
+# docs 폴더만 포함
+!docs/
+!docs/**
+
+# 필수 파일
+!.gitignore
+!build_static_site.py
+!extract_wpress.py

@@ -110,6 +110,7 @@ PLATFORMS
   riscv64-linux-musl
   ruby
   x86_64-darwin-23
+  x86_64-linux
   x86_64-linux-android
 
 DEPENDENCIES

@@ -21,9 +21,5 @@
 <!-- Google Analytics -->
 {% include analytics.html %}
 
-<!-- CSS -->
-<link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}?v={{ site.time | date: '%s' }}">
-<link rel="stylesheet" href="{{ '/assets/css/header.css' | relative_url }}?v={{ site.time | date: '%s' }}">
-<link rel="stylesheet" href="{{ '/assets/css/footer.css' | relative_url }}?v={{ site.time | date: '%s' }}">
-<link rel="stylesheet" href="{{ '/assets/css/content.css' | relative_url }}?v={{ site.time | date: '%s' }}">
-<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<!-- CSS (5개 파일 → 1개로 합침 + minify) -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">

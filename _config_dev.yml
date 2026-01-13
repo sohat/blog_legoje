@@ -1,0 +1,6 @@
+# 로컬 개발용 설정 (배포 설정 덮어쓰기)
+# 사용법: bundle exec jekyll serve --config _config.yml,_config_dev.yml
+
+sass:
+  style: expanded    # 가독성 좋게 출력
+  sourcemap: always  # 개발자 도구에서 원본 파일명 표시 (_base.scss, _header.scss 등)

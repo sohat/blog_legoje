@@ -13,6 +13,11 @@ theme: null  # 기본 minima 테마 비활성화 (CSS 덮어쓰기 방지)
 highlighter: rouge
 permalink: /:title/
 
+# Sass 설정
+sass:
+  sass_dir: _sass
+  style: compressed  # 배포 시 minify (expanded로 변경하면 가독성 좋음)
+
 # Pagination
 paginate: 10
 paginate_path: "/page/:num/"

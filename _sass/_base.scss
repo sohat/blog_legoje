@@ -2783,7 +2783,7 @@ h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]), h1.has-
     vertical-align: bottom
 }
 
-@media not(prefers-reduced-motion) {
+@media not (prefers-reduced-motion) {
     .wp-block-image img.hide {
         visibility: hidden
     }
@@ -2918,7 +2918,7 @@ or
     z-index: 100
 }
 
-@media not(prefers-reduced-motion) {
+@media not (prefers-reduced-motion) {
     .wp-lightbox-container button {
         transition: opacity .2s ease
     }
@@ -3030,7 +3030,7 @@ or
     visibility: visible
 }
 
-@media not(prefers-reduced-motion) {
+@media not (prefers-reduced-motion) {
     .wp-lightbox-overlay.active {
         animation: turn-on-visibility .25s both
     }
@@ -3564,7 +3564,7 @@ ol, ul {
     z-index: 2
 }
 
-@media not(prefers-reduced-motion) {
+@media not (prefers-reduced-motion) {
     .wp-block-navigation .has-child .wp-block-navigation__submenu-container {
         transition: opacity .1s linear
     }
@@ -3778,7 +3778,7 @@ button.wp-block-navigation-item__content {
     z-index: 100000
 }
 
-@media not(prefers-reduced-motion) {
+@media not (prefers-reduced-motion) {
     .wp-block-navigation__responsive-container.is-menu-open {
         animation: overlay-menu__fade-in-animation .1s ease-out;
         animation-fill-mode: forwards
@@ -4844,7 +4844,7 @@ ul.wp-block-rss.is-grid li {
     height: auto
 }
 
-@media not(prefers-reduced-motion) {
+@media not (prefers-reduced-motion) {
     .wp-block-social-link {
         transition: transform .1s ease
     }

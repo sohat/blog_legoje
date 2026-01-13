@@ -1,32 +1,22 @@
-# 1. 시스템 및 가상 환경 파일 (제외)
+# 시스템 파일
 .DS_Store
 Thumbs.db
-__pycache__/
-venv/
+
+# IDE 및 편집기
 .idea/
-.claude/
+.vscode/
 
-# 2. 워드프레스 원본 및 백업 (제외)
-*.wpress
-wp-config.php
-*.log
-
-# 3. Jekyll 빌드 파일 (제외)
-_site/
+# Ruby / Jekyll
+.bundle/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
+_site/
 vendor/
 
-# 3. 루트의 필수 파일 (반드시 포함)
-!.gitignore
-!docs/ads.txt
-!sitemap.xml
-!robots.txt
-!build_static_site.py
-!extract_wpress.py
-!CLAUDE.md
+# Python
+__pycache__/
+.venv/
 
-# 4. 배포용 폴더 (반드시 포함)
-!docs/
-!docs/**
+# Claude
+.claude/

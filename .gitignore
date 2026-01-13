@@ -11,6 +11,13 @@ venv/
 wp-config.php
 *.log
 
+# 3. Jekyll 빌드 파일 (제외)
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+
 # 3. 루트의 필수 파일 (반드시 포함)
 !.gitignore
 !docs/ads.txt

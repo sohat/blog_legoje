@@ -1,0 +1,46 @@
+---
+---
+{%- capture _LINE_FEED -%}
+{% endcapture -%}
+
+{%- if site.compress_html.ignore.envs contains jekyll.environment -%}
+  {{ content }}
+{%- else -%}
+
+{%- assign _content = content -%}
+
+{%- if _content contains "<pre" -%}
+  {%- assign _pres = _content | split: "<pre" -%}
+  {%- assign _content = "" -%}
+  {%- for _pre in _pres -%}
+    {%- if forloop.first -%}
+      {%- assign _content = _pre -%}
+    {%- else -%}
+      {%- assign _pre_parts = _pre | split: "</pre>" -%}
+      {%- assign _content = _content | append: "<!-- compress_pre -->" | append: _pre_parts.last -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- if _content contains "<textarea" -%}
+  {%- assign _textareas = _content | split: "<textarea" -%}
+  {%- assign _content = "" -%}
+  {%- for _textarea in _textareas -%}
+    {%- if forloop.first -%}
+      {%- assign _content = _textarea -%}
+    {%- else -%}
+      {%- assign _textarea_parts = _textarea | split: "</textarea>" -%}
+      {%- assign _content = _content | append: "<!-- compress_textarea -->" | append: _textarea_parts.last -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+{%- assign _content = _content | split: _LINE_FEED | join: " " -%}
+{%- assign _content = _content | split: "  " | join: " " -%}
+{%- assign _content = _content | split: "  " | join: " " -%}
+{%- assign _content = _content | split: "  " | join: " " -%}
+{%- assign _content = _content | split: "> <" | join: "><" -%}
+
+{{ _content }}
+
+{%- endif -%}

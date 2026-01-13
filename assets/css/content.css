@@ -1,0 +1,301 @@
+/* ==========================================================================
+   Content CSS - 포스트 내부 컨텐츠 스타일
+   ========================================================================== */
+
+/* 사이트 콘텐츠 공통 */
+.site-content {
+    justify-content: center;
+    letter-spacing: -0.5px;
+}
+
+.site-content .content-area {
+    width: 90%;
+}
+
+.site-content .content-area strong a {
+    color: #007FFF;
+}
+
+.site-content .content-area a strong {
+    color: #007FFF;
+}
+
+.site-content .content-area .red {
+    color: red;
+}
+
+.site-content .content-area .underline {
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: normal;
+    color: #000;
+    background: linear-gradient(to top, #f890094f 60%, transparent 50%);
+    font-weight: 600;
+}
+
+.site-content .content-area h3 a {
+    color: white;
+    text-decoration: none;
+}
+
+.site-content .content-area u {
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: normal;
+    color: #000;
+    background: linear-gradient(to top, #f890094f 60%, transparent 50%);
+    font-weight: 600;
+}
+
+/* 컨텐츠 내부 헤더 */
+div.entry-content > h3 {
+    position: relative;
+    display: block;
+    font-size: 1.4em;
+    font-weight: 700;
+    letter-spacing: -.02em;
+    margin: 20px 0;
+    padding: 10px 15px 10px 20px;
+    line-height: 1.4em;
+    border: 0;
+    color: white;
+    z-index: 1;
+    background: linear-gradient(to right, #18408a, #0081f8);
+}
+
+div.entry-content > h4 {
+    width: max-content;
+    padding-top: 5x;
+    padding-right: 10px;
+    font-weight: 700;
+    border-bottom: 3px solid #ffe200;
+}
+
+/* 썸네일 */
+.content-area .featured-image {
+    text-align: center;
+    width: auto;
+    max-width: 400px;
+    height: auto;
+}
+
+.content-area .post-image {
+    text-align: center;
+}
+
+.content-area .post-image img {
+    width: auto;
+    height: auto;
+}
+
+/* 컨텐츠 내부 리스트 스타일 */
+.content-area li {
+    margin: 10px 0px;
+}
+
+.content-area .blind {
+    display: none;
+}
+
+/* 컨텐츠 이미지내 캡션 스타일*/
+.wp-block-gallery.has-nested-images figure.wp-block-image figcaption {
+    text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
+}
+
+/* 컨텐츠 내부 테이블 스타일 */
+.content-area table {
+    margin: auto;
+    max-width: 100%;
+    border-collapse: collapse;
+    color: #333;
+    border-radius: .5em;
+    overflow: hidden;
+    border: 1px solid #bfbfbf;
+}
+
+.content-area table thead {
+    border-color: #595959;
+}
+
+.content-area table th {
+    border-top: none;
+    background: #428bca;
+    color: #fff;
+    padding: 0.6em !important;
+}
+
+.content-area table tr {
+    background-color: #f5f9fc;
+    border-color: #bfbfbf;
+}
+
+.content-area table tr:last-child {
+    border-bottom: 2px solid #bfbfbf;
+}
+
+.content-area table tr:nth-child(even) {
+    background-color: #ebf3f9;
+}
+
+.content-area table td {
+    text-align: center;
+    line-height: 30px;
+    border: 1px solid #bfbfbf;
+    padding: 0.6em !important;
+}
+
+.wp-block-table.left-td td {
+    text-align: left;
+}
+
+@media screen and (max-width: 601px) {
+    .content-area table tr:nth-child(2) {
+        border-top: none;
+    }
+}
+
+/* 컨텐츠 내부 html 가져온 스타일 */
+.content-area .css-1p1vjk1 {
+    margin: 0px;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-decoration: none;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 250px;
+    height: 68px;
+    background-color: rgb(244, 249, 253);
+    color: rgb(0, 0, 0);
+    border: 1px solid rgb(217, 221, 224);
+    border-radius: 20px;
+}
+
+/* 컨텐츠 내부 버튼 스타일 */
+.custom-button1-container {
+    margin: 0px;
+    text-decoration: none;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    max-width: 600px;
+    height: auto;
+    background-color: #eaf6ff;
+    color: black;
+    border: 5px solid #2196f3;
+    border-radius: 100px;
+    padding: 20px 10px;
+    cursor: pointer;
+}
+
+.custom-button1-container.orange {
+    background-color: #fea931;
+    color: white;
+    font-weight: 600;
+    border: 3px solid #ffc200;
+    transition: all 0.2s linear 0s;
+}
+
+.custom-button1-container.orange:after {
+    content: "\2192";
+    font-size: 25px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    opacity: 0;
+    height: 100%;
+    width: 0;
+    transition: all 0.2s linear 0s;
+    text-shadow: -1px 0 #9d671e, 0 1px #9d671e, 1px 0 #9d671e, 0 -1px #9d671e;
+}
+
+@media (hover: hover) {
+    .custom-button1-container:hover {
+        color: blue;
+        text-decoration: underline;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07),
+        0 2px 4px rgba(0, 0, 0, 0.07),
+        0 4px 8px rgba(0, 0, 0, 0.07),
+        0 8px 16px rgba(0, 0, 0, 0.07),
+        0 16px 32px rgba(0, 0, 0, 0.07),
+        0 32px 64px rgba(0, 0, 0, 0.07);
+    }
+
+    .custom-button1-container.orange:hover {
+        background-color: #f28123;
+        color: white;
+        text-decoration: none;
+        box-shadow: none;
+        text-indent: -20px;
+    }
+
+    .custom-button1-container.orange:hover:after {
+        right: 0;
+        text-indent: 0px;
+        margin-left: 20px;
+        opacity: 1;
+    }
+}
+
+.custom-button1-a-attribute {
+    display: contents;;
+    -webkit-box-pack: center;
+    text-decoration: none;
+    color: #333333;
+}
+
+.custom-button1-container .custom-button1-img-container {
+    display: flex;
+    width: 15%;
+    height: auto;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.custom-button1-container .custom-button1-text-container {
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.custom-button1-text-container .first-line {
+    font-size: 110%
+}
+
+.custom-button1-text-container .second-line {
+    font-size: 140%;
+    font-weight: 600;
+}
+
+.custom-button1-container.orange .custom-button1-text-container .first-line {
+    font-weight: 700;
+    font-size: 122%
+}
+
+.custom-button1-container.orange .custom-button1-text-container .second-line {
+    font-size: 158%;
+    font-weight: 800;
+    text-shadow: -1px 0 #9d671e, 0 1px #9d671e, 1px 0 #9d671e, 0 -1px #9d671e;
+}
+
+.entry-content .alignwide {
+    width: 100%;
+    margin: 0;
+}

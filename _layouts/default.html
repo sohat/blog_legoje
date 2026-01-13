@@ -1,0 +1,24 @@
+---
+layout: compress
+---
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+{% include head.html %}
+</head>
+<body class="{{ page.layout }} wp-custom-logo wp-embed-responsive wp-theme-generatepress no-sidebar nav-below-header separate-containers header-aligned-left dropdown-hover">
+    <a class="screen-reader-text skip-link" href="#content">Skip to content</a>
+
+    {% include header.html %}
+    {% include nav.html %}
+
+    <div class="site grid-container container" id="page">
+        <div class="site-content" id="content">
+            {{ content }}
+        </div>
+    </div>
+
+    {% include footer.html %}
+    {% include adsense.html %}
+</body>
+</html>

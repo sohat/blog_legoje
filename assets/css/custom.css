@@ -1,0 +1,610 @@
+/* 쿠폰 컨테이너 start */
+/*  ================================================
+TICKET STYLING & COUPON EFFECT
+================================================  */
+.ticket-container {
+    width: 100%;
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+    line-height: initial;
+}
+
+.ticket-element {
+    width: 33.333%;
+    height: 480px;
+    position: relative;
+    padding: 10px;
+    display: flex;
+}
+
+.ticket {
+    position: relative;
+    display: table;
+    box-sizing: border-box;
+    width: 100%;
+    background: #F4F4F4;
+    text-align: center;
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    border-color: #dbdbdb;
+}
+
+/*  ================================================
+RIBBON EFFECT
+================================================  */
+.ticket .ribbon {
+    position: absolute;
+    display: block;
+    top: -4px;
+    right: -4px;
+    width: 110px;
+    height: 110px;
+    overflow: hidden;
+}
+
+.ticket .ribbon .label {
+    position: relative;
+    display: block;
+    left: -10px;
+    top: 23px;
+    width: 158px;
+    padding: 10px 0;
+    font-size: 15px;
+    text-align: center;
+    color: #fff;
+    background-color: #e85e68;
+    -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+    -ms-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+    -webkit-transform: rotate(45deg) translate3d(0, 0, 0);
+    -moz-transform: rotate(45deg) translate3d(0, 0, 0);
+    -ms-transform: rotate(45deg) translate3d(0, 0, 0);
+    transform: rotate(45deg) translate3d(0, 0, 0);
+}
+
+.ticket .label:before, .label:after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    border-top: 4px solid #a71c26;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+}
+
+.ticket .label:before {
+    left: 0;
+}
+
+.ticket .label:after {
+    right: 0;
+}
+
+/*  ================================================
+CONTENT
+================================================  */
+.ticket span {
+    display: block;
+    font-size: 29px;
+    color: #540c5d;
+    font-weight: 700;
+}
+
+.ticket strong {
+    display: block;
+    font-size: 75px;
+    color: #a52958;
+    margin: 0 0 10px 0;
+}
+
+.ticket em {
+    display: block;
+    font-size: 22px;
+    font-style: normal;
+    color: #1AE17F;
+    border-top: 2px dashed rgba(0, 0, 0, .1);
+    padding: 10px 0;
+    font-weight: 700;
+}
+
+.ticket ul {
+    padding: 10px 0;
+    margin: 0;
+}
+
+.ticket li {
+    font-size: 16px !important;
+    list-style: none !important;
+    padding-bottom: 10px;
+}
+
+.ticket a, .ticket a.link {
+    display: block;
+    padding: 33px 0 0 0;
+    color: #313131;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.ticket .code {
+    border: 1px dashed green;
+    width: 50%;
+    text-align: center;
+    display: inline-block;
+    cursor: pointer;
+    padding: 2px 7px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/*  ================================================
+ACTION CALL & ARROW UP EFFECT
+================================================  */
+.ticket .button {
+    display: block;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 57px;
+    padding: 0;
+    line-height: 58px;
+    text-align: center;
+    border-radius: 0;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.ticket .button.green {
+    background-color: #61ce70;
+}
+
+.ticket .button.orange {
+    background-color: #ffa218;
+}
+
+.ticket .button.red {
+    background-color: #E03A3E;
+    color: white;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: calc(50% - 20px);
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 10px solid #61ce70;
+}
+
+.button.green::before {
+    border-bottom: 10px solid #61ce70;
+}
+
+.button.orange::before {
+    border-bottom: 10px solid #ffa218;
+}
+
+.button.red::before {
+    border-bottom: 10px solid #E03A3E;
+}
+
+/* ==========================================================================
+   목차 스타일 (content 내부)
+   ========================================================================== */
+
+#toc {
+    background: #f9f9f9;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    display: table;
+    margin-bottom: 1em;
+    padding: 10px 20px 10px 10px;
+    position: relative;
+    width: auto
+}
+
+div.toc-widget-container {
+    padding: 0;
+    position: relative
+}
+
+#toc.toc-light-blue {
+    background: #edf6ff
+}
+
+#toc.toc-white {
+    background: #fff
+}
+
+#toc.toc-black {
+    background: #000
+}
+
+#toc.toc-transparent {
+    background: 0
+}
+
+div.toc-widget-container ul {
+    display: block
+}
+
+div.toc-widget-container li {
+    border: 0;
+    padding: 0
+}
+
+div.toc-widget-container ul.toc-list {
+    padding: 10px
+}
+
+#toc ul ul, .toc div.toc-widget-container ul ul {
+    margin-left: 1.5em
+}
+
+#toc li, #toc ul {
+    padding: 0
+}
+
+#toc li, #toc ul, #toc ul li, div.toc-widget-container, div.toc-widget-container li {
+    background: 0;
+    list-style: none;
+    line-height: 1.6;
+    margin: 0;
+    overflow: hidden;
+    z-index: 1
+}
+
+#toc .toc-title {
+    text-align: left;
+    line-height: 1.45;
+    margin: 0;
+    padding: 0
+}
+
+.toc-title-container {
+    display: table;
+    width: 100%
+}
+
+.toc-title, .toc-title-toggle {
+    display: inline;
+    text-align: left;
+    vertical-align: middle
+}
+
+.toc-btn, .toc-glyphicon {
+    display: inline-block;
+    font-weight: 400
+}
+
+#toc.toc-black a, #toc.toc-black a:visited, #toc.toc-black p.toc-title {
+    color: #fff
+}
+
+#toc div.toc-title-container + ul.toc-list {
+    margin-top: 1em
+}
+
+.toc-wrap-left {
+    margin: 0 auto 1em 0 !important
+}
+
+.toc-wrap-left-text {
+    float: left
+}
+
+.toc-wrap-right {
+    margin: 0 0 1em auto !important
+}
+
+.toc-wrap-right-text {
+    float: right
+}
+
+#toc a {
+    color: #444;
+    box-shadow: none;
+    text-decoration: none;
+    text-shadow: none;
+    display: inline-flex;
+    align-items: stretch;
+    flex-wrap: nowrap
+}
+
+#toc a:visited {
+    color: #9f9f9f
+}
+
+#toc a:hover {
+    text-decoration: underline
+}
+
+#toc a.toc-toggle {
+    display: flex;
+    align-items: center
+}
+
+.toc-widget-container ul.toc-list li::before {
+    content: ' ';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 30px;
+    line-height: 30px;
+    z-index: -1
+}
+
+.toc-widget-container ul.toc-list li.active {
+    background-color: #ededed
+}
+
+.toc-widget-container li.active > a {
+    font-weight: 900
+}
+
+.toc-btn {
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none
+}
+
+.toc-btn:focus {
+    outline: #333 dotted thin;
+    outline: -webkit-focus-ring-color auto 5px;
+    outline-offset: -2px
+}
+
+.toc-btn:focus, .toc-btn:hover {
+    color: #333;
+    text-decoration: none
+}
+
+.toc-btn.active, .toc-btn:active {
+    background-image: none;
+    outline: 0;
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125)
+}
+
+.toc-btn-default {
+    color: #333;
+    background-color: #fff;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .15), 0 1px 1px rgba(0, 0, 0, .075);
+    text-shadow: 0 1px 0 #fff;
+    background-image: -webkit-gradient(linear, left 0, left 100%, from(#fff), to(#e0e0e0));
+    background-image: -webkit-linear-gradient(top, #fff 0, #e0e0e0 100%);
+    background-image: -moz-linear-gradient(top, #fff 0, #e0e0e0 100%);
+    background-image: linear-gradient(to bottom, #fff 0, #e0e0e0 100%);
+    background-repeat: repeat-x;
+    border-color: #ccc
+}
+
+.toc-btn-default.active, .toc-btn-default:active, .toc-btn-default:focus, .toc-btn-default:hover {
+    color: #333;
+    background-color: #ebebeb;
+    border-color: #adadad
+}
+
+.toc-btn-default.active, .toc-btn-default:active {
+    background-image: none;
+    background-color: #e0e0e0;
+    border-color: #dbdbdb
+}
+
+.toc-btn-sm, .toc-btn-xs {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px
+}
+
+.toc-btn-xs {
+    padding: 1px 5px
+}
+
+.toc-btn-default:active {
+    -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125)
+}
+
+.btn.active, .toc-btn:active {
+    background-image: none
+}
+
+.toc-btn-default:focus, .toc-btn-default:hover {
+    background-color: #e0e0e0;
+    background-position: 0 -15px
+}
+
+.toc-pull-right {
+    float: right !important;
+    margin-left: 10px
+}
+
+#toc label.cssicon, #toc-widget-container label.cssicon {
+    height: 30px
+}
+
+.toc-glyphicon {
+    position: relative;
+    top: 1px;
+    font-family: 'Glyphicons Halflings';
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    line-height: 1;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.toc-glyphicon:empty {
+    width: 1em
+}
+
+.toc-toggle i.toc-glyphicon, label.cssicon .toc-glyphicon:empty {
+    font-size: 16px;
+    margin-left: 2px
+}
+
+#toc input, .toc-toggle #item {
+    position: absolute;
+    left: -999em
+}
+
+#toc input[type=checkbox]:checked + nav, #toc-widget-container input[type=checkbox]:checked + nav {
+    opacity: 0;
+    max-height: 0;
+    border: 0;
+    display: none
+}
+
+#toc .toc-js-icon-con, #toc label {
+    position: relative;
+    cursor: pointer;
+    display: initial
+}
+
+#toc .toc-js-icon-con, #toc .toc-toggle label, .toc-cssicon {
+    float: right;
+    position: relative;
+    font-size: 16px;
+    padding: 0;
+    border: 1px solid #999191;
+    border-radius: 5px;
+    cursor: pointer;
+    left: 10px;
+    width: 35px
+}
+
+div#toc .toc-title {
+    display: initial
+}
+
+.toc-wrap-center {
+    margin: 0 auto 1em !important
+}
+
+#toc a.toc-toggle {
+    color: #444;
+    background: inherit;
+    border: inherit
+}
+
+#toc .toc-toggle-hide-by-default, .toc-hide, label.cssiconcheckbox {
+    display: none
+}
+
+.toc-widget-container ul li a {
+    padding-left: 10px;
+    display: inline-flex;
+    align-items: stretch;
+    flex-wrap: nowrap
+}
+
+.toc-widget-container ul.toc-list li {
+    height: auto !important
+}
+
+.toc-icon-toggle-span {
+    display: flex;
+    align-items: center;
+    width: 35px;
+    height: 30px;
+    justify-content: center;
+    direction: ltr
+}
+
+.toc_no_heading_found {
+    background-color: #ff0;
+    padding-left: 10px
+}
+
+.term-description .toc-title-container p:nth-child(2) {
+    width: 50px;
+    float: right;
+    margin: 0
+}
+
+/* === Extracted CSS === */
+
+
+div#toc .toc-title {
+    font-size: 150%;
+}
+
+div#toc .toc-title {
+    font-weight: 600;
+}
+
+div#toc ul li, div#toc ul li a {
+    font-size: 14pt;
+}
+
+div#toc ul li, div#toc ul li a {
+    font-weight: 500;
+}
+
+div#toc nav ul ul li {
+    font-size: 100%;
+}
+
+ul.toc-list a.toc-link {
+    padding: 0 0 10px 0;
+}
+
+.toc-container-direction {
+    direction: ltr;
+}
+
+.toc-counter ul {
+    direction: ltr;
+    counter-reset: item;
+}
+
+.toc-counter nav ul li a::before {
+    content: counter(item, circle) '  ';
+    margin-right: .2em;
+    counter-increment: item;
+    flex-grow: 0;
+    flex-shrink: 0;
+    float: left;
+}
+
+.toc-widget-direction {
+    direction: ltr;
+}
+
+.toc-widget-container ul {
+    direction: ltr;
+    counter-reset: item;
+}
+
+.toc-widget-container nav ul li a::before {
+    content: counter(item, circle) '  ';
+    margin-right: .2em;
+    counter-increment: item;
+    flex-grow: 0;
+    flex-shrink: 0;
+    float: left;
+}
+
+/* 쿠폰 컨테이너 end */

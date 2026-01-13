@@ -1,0 +1,64 @@
+# Site settings
+title: "내가 궁금해서 시작한 블로그"
+description: "돈 되는 금융 이벤트와 가입 혜택 초대코드를 빠르게 공유합니다. 실생활에 유익한 경제 정보를 정성껏 기록합니다."
+url: "https://legoje.com"
+baseurl: ""
+author: "Legoje"
+
+# Build settings
+source: .
+destination: _site
+markdown: kramdown
+theme: null  # 기본 minima 테마 비활성화 (CSS 덮어쓰기 방지)
+highlighter: rouge
+permalink: /:title/
+
+# Pagination
+paginate: 10
+paginate_path: "/page/:num/"
+
+# Timezone
+timezone: Asia/Seoul
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Exclude from build (CPU 폭주 방지 및 찌꺼기 제거)
+exclude:
+  - .idea
+  - .jekyll-cache
+  - .sass-cache
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .bundle
+  - "*.py"
+  - docs_backup
+  - docs
+  - _site              # 빌드 결과물이 다시 빌드되는 무한 루프 방지
+  # wp-content/uploads는 이미지 때문에 포함 (서버 실행 시 --no-watch 사용 권장)
+
+# Include (assets 폴더를 명시적으로 포함)
+include:
+  - _pages
+  - assets     # CSS가 무시되지 않도록 명시
+
+# HTML Minify 설정 (빌드 결과물만 압축, 소스는 그대로)
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  ignore:
+    envs: [development]  # 개발 환경에서는 minify 비활성화

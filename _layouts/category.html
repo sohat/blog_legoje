@@ -1,0 +1,157 @@
+---
+layout: default
+---
+<div class="content-area" id="primary">
+    <main class="site-main" id="main">
+        <header class="page-header" aria-label="Page">
+            <h1 class="page-title">{{ page.title }}</h1>
+            {% if page.description %}
+            <div class="taxonomy-description"><p>{{ page.description }}</p></div>
+            {% endif %}
+        </header>
+
+        {% assign category_posts = "" | split: "" %}
+        {% assign all_cats = page.category_name | split: "|||" %}
+        {% if page.subcategories %}
+            {% for subcat in page.subcategories %}
+                {% assign all_cats = all_cats | push: subcat %}
+            {% endfor %}
+        {% endif %}
+        {% for post in site.posts %}
+            {% assign found = false %}
+            {% for cat in all_cats %}
+                {% if post.categories contains cat %}
+                    {% assign found = true %}
+                    {% break %}
+                {% endif %}
+            {% endfor %}
+            {% if found %}
+                {% assign category_posts = category_posts | push: post %}
+            {% endif %}
+        {% endfor %}
+        {% assign total_posts = category_posts.size %}
+
+        <div id="posts-container">
+        {% for post in category_posts %}
+        <article class="post-item post type-post status-publish format-standard has-post-thumbnail hentry {% for cat in post.categories %}category-{{ cat | slugify }} {% endfor %}{% for tag in post.tags %}tag-{{ tag | slugify }} {% endfor %}" itemtype="https://schema.org/CreativeWork" itemscope="">
+            <div class="inside-article">
+                <header class="entry-header" aria-label="Content">
+                    <h2 class="entry-title" itemprop="headline">
+                        <a href="{{ post.url }}" rel="bookmark">{{ post.title }}</a>
+                    </h2>
+                    <div class="entry-meta">
+                        <span class="posted-on">
+                            <time class="updated" datetime="{{ post.date | date_to_xmlschema }}" itemprop="dateModified">{{ post.date | date: "%Y년 %m월 %d일" }}</time>
+                            <time class="entry-date published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">{{ post.date | date: "%Y년 %m월 %d일" }}</time>
+                        </span>
+                        <span class="byline">by <span class="author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope=""><a class="url fn n" href="/author/{{ post.author | default: 'parkmy' }}/" title="View all posts by {{ post.author | default: 'Legoje' }}" rel="author" itemprop="url"><span class="author-name" itemprop="name">{{ post.author | default: 'Legoje' }}</span></a></span></span>
+                    </div>
+                </header>
+
+                {% if post.image %}
+                <div class="post-image">
+                    <a href="{{ post.url }}">
+                        <img loading="lazy" width="400" height="400" src="{{ post.image }}" class="attachment-full size-full wp-post-image" alt="{{ post.title }}" itemprop="image" decoding="async">
+                    </a>
+                </div>
+                {% endif %}
+
+                <div class="entry-summary" itemprop="text">
+                    <p>{% if post.description %}{{ post.description }}{% else %}{{ post.content | strip_html | truncate: 200 }}{% endif %} <a title="{{ post.title }}" class="read-more" href="{{ post.url }}" aria-label="More on {{ post.title }}">Read more</a></p>
+                </div>
+
+                <footer class="entry-meta" aria-label="Entry meta">
+                    {% if post.categories.size > 0 %}
+                    <span class="cat-links">
+                        <span class="gp-icon icon-categories"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M0 112c0-26.51 21.49-48 48-48h110.014a48 48 0 0143.592 27.907l12.349 26.791A16 16 0 00228.486 128H464c26.51 0 48 21.49 48 48v224c0 26.51-21.49 48-48 48H48c-26.51 0-48-21.49-48-48V112z"></path></svg></span>
+                        <span class="screen-reader-text">Categories </span>
+                        {% for cat in post.categories %}
+                        <a href="/category/{{ cat | slugify }}/" rel="category tag">{{ cat }}</a>{% unless forloop.last %}, {% endunless %}
+                        {% endfor %}
+                    </span>
+                    {% endif %}
+                    {% if post.tags.size > 0 %}
+                    <span class="tags-links">
+                        <span class="gp-icon icon-tags"><svg viewBox="0 0 512 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M20 39.5c-8.836 0-16 7.163-16 16v176c0 4.243 1.686 8.313 4.687 11.314l224 224c6.248 6.248 16.378 6.248 22.626 0l176-176c6.244-6.244 6.25-16.364.013-22.615l-223.5-224A15.999 15.999 0 00196.5 39.5H20zm56 96c0-13.255 10.745-24 24-24s24 10.745 24 24-10.745 24-24 24-24-10.745-24-24z"></path><path d="M259.515 43.015c4.686-4.687 12.284-4.687 16.97 0l228 228c4.686 4.686 4.686 12.284 0 16.97l-180 180c-4.686 4.687-12.284 4.687-16.97 0-4.686-4.686-4.686-12.284 0-16.97L479.029 279.5 259.515 59.985c-4.686-4.686-4.686-12.284 0-16.97z"></path></svg></span>
+                        <span class="screen-reader-text">Tags </span>
+                        {% for tag in post.tags %}
+                        <a href="/tag/{{ tag | slugify }}/" rel="tag">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+                        {% endfor %}
+                    </span>
+                    {% endif %}
+                </footer>
+            </div>
+        </article>
+        {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if total_posts > 10 %}
+        <nav id="nav-below" class="paging-navigation" aria-label="Archive Page">
+            <div class="nav-previous"></div>
+            <div class="nav-links" id="pagination-links"></div>
+        </nav>
+        {% endif %}
+    </main>
+</div>
+
+<script>
+(function() {
+    var perPage = 10;
+    var posts = document.querySelectorAll('#posts-container .post-item');
+    var totalPosts = posts.length;
+    var totalPages = Math.ceil(totalPosts / perPage);
+    var currentPage = 1;
+
+    function showPage(page) {
+        currentPage = page;
+        var start = (page - 1) * perPage;
+        var end = start + perPage;
+
+        posts.forEach(function(post, index) {
+            post.style.display = (index >= start && index < end) ? 'block' : 'none';
+        });
+
+        updatePagination();
+        window.scrollTo(0, 0);
+    }
+
+    function updatePagination() {
+        var container = document.getElementById('pagination-links');
+        if (!container || totalPages <= 1) return;
+
+        var html = '';
+
+        if (currentPage > 1) {
+            html += '<a href="#" class="prev page-numbers" data-page="' + (currentPage - 1) + '"><span class="gp-icon icon-arrow"><svg viewBox="0 0 330 512" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em"><path d="M305.913 197.085c0 2.266-1.133 4.815-2.833 6.514L171.087 335.593c-1.7 1.7-4.249 2.832-6.515 2.832s-4.815-1.133-6.515-2.832L26.064 203.599c-1.7-1.7-2.832-4.248-2.832-6.514s1.132-4.816 2.832-6.515l14.162-14.163c1.7-1.699 3.966-2.832 6.515-2.832 2.266 0 4.815 1.133 6.515 2.832l111.316 111.317 111.316-111.317c1.7-1.699 4.249-2.832 6.515-2.832s4.815 1.133 6.515 2.832l14.162 14.163c1.7 1.7 2.833 4.249 2.833 6.515z"></path></svg></span> 이전</a> ';
+        }
+
+        for (var i = 1; i <= totalPages; i++) {
+            if (i === currentPage) {
+                html += '<span aria-current="page" class="page-numbers current"><span class="screen-reader-text">Page </span>' + i + '</span>';
+            } else if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
+                html += '<a href="#" class="page-numbers" data-page="' + i + '"><span class="screen-reader-text">Page </span>' + i + '</a>';
+            } else if (i === currentPage - 2 || i === currentPage + 2) {
+                html += '<span class="page-numbers dots">…</span>';
+            }
+        }
+
+        if (currentPage < totalPages) {
+            html += ' <a href="#" class="next page-numbers" data-page="' + (currentPage + 1) + '">다음 <span aria-hidden="true">→</span></a>';
+        }
+
+        container.innerHTML = html;
+
+        container.querySelectorAll('a[data-page]').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                showPage(parseInt(this.getAttribute('data-page')));
+            });
+        });
+    }
+
+    if (totalPosts > perPage) {
+        showPage(1);
+    }
+})();
+</script>

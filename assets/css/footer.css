@@ -1,0 +1,61 @@
+/* ==========================================================================
+   Footer CSS
+   ========================================================================== */
+
+/* Site Footer */
+.site-footer {
+    margin-top: auto;
+}
+
+.site-info {
+    text-align: center;
+    font-size: 15px;
+    background-color: var(--base-3);
+}
+
+.inside-site-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px;
+}
+
+.copyright-bar {
+    text-align: center;
+}
+
+.copyright-bar .copyright {
+    margin-right: 5px;
+}
+
+/* Footer Widgets */
+.footer-widgets {
+    background-color: var(--base-3);
+}
+
+.footer-widgets .widget {
+    margin-bottom: 30px;
+}
+
+.footer-widgets .widget:last-child {
+    margin-bottom: 0;
+}
+
+.footer-widgets .widget :last-child {
+    margin-bottom: 0;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .footer-widgets-container {
+        padding-top: 30px;
+        padding-right: 30px;
+        padding-bottom: 30px;
+        padding-left: 30px;
+    }
+
+    .inside-site-info {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+}

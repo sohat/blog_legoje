@@ -1,0 +1,15 @@
+<header class=site-header id=masthead aria-label=Site itemtype=https://schema.org/WPHeader itemscope>
+    <div class="inside-header grid-container">
+        <div class=site-branding-container>
+            <div class=site-logo><a href="{{ '/' | relative_url }}" rel=home><img class="header-image is-logo-image"
+                                                                                  alt="내가 궁금해서 시작한 블로그"
+                                                                                  src="{{ '/wp-content/uploads/2023/06/icons8-lisa-simpson-70.png' | relative_url }}"
+                                                                                  width=70 height=70></a></div>
+            <div class=site-branding>{% if page.url == '/' %}<h1 class=main-title itemprop=headline><a
+                    href="{{ '/' | relative_url }}" rel=home> 내가 궁금해서 시작한 블로그 </a></h1>{% else %}<p class=main-title
+                                                                                                    itemprop=headline><a
+                    href="{{ '/' | relative_url }}" rel=home> 내가 궁금해서 시작한 블로그 </a></p>{% endif %}
+                <p class=site-description itemprop=description> 벌땐 벌고 놀땐 놀기 위한 블로그 </p></div>
+        </div>
+    </div>
+</header>

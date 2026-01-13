@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+<meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+
+<!-- Open Graph -->
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+<meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:site_name" content="{{ site.title }}">
+{% if page.image %}
+<meta property="og:image" content="{{ site.url }}{{ page.image }}">
+{% endif %}
+
+<!-- Canonical -->
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+<!-- Google Analytics -->
+{% include analytics.html %}
+
+<!-- CSS -->
+<link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<link rel="stylesheet" href="{{ '/assets/css/header.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<link rel="stylesheet" href="{{ '/assets/css/footer.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<link rel="stylesheet" href="{{ '/assets/css/content.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}?v={{ site.time | date: '%s' }}">

@@ -229,7 +229,7 @@ TICKET STYLING & COUPON EFFECT
 
 .custom-button1-container .custom-button1-img-container {
     display: flex;
-    max-width: 30%;
+    max-width: 20%;
     height: auto;
     flex-direction: row-reverse;
     flex-wrap: nowrap;
@@ -237,10 +237,6 @@ TICKET STYLING & COUPON EFFECT
     justify-content: center;
     align-items: center;
     margin-right: 20px;
-}
-
-.custom-button1-container .custom-button1-text-container .first-line {
-    font-size: 75%
 }
 
 .custom-button1-container .custom-button1-text-container .second-line {
@@ -328,13 +324,8 @@ TICKET STYLING & COUPON EFFECT
     flex-direction: column;
 }
 
-.custom-button1-text-container .first-line {
+.custom-button1-container .custom-button1-text-container .first-line {
     font-size: 110%
-}
-
-.custom-button1-text-container .second-line {
-    font-size: 140%;
-    font-weight: 600;
 }
 
 .custom-button1-container.orange .custom-button1-text-container .first-line {

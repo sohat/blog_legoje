@@ -1,6 +1,5 @@
 {% comment %}
-URL로 포스트를 찾되, 객체 전체를 부르지 않고
-데이터(String)만 개별적으로 필터링하여 가져옵니다.
+URL로 포스트를 찾아서 데이터 불러옴. jekyll 설정에서 permalink(실제접속 주소) 값이 있어야 부를 수 있음.
 {% endcomment %}
 {% assign target_url = include.url %}
 {% assign posts = site.posts | where: "url", target_url %}

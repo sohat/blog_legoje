@@ -1,0 +1,39 @@
+{% comment %}
+URL로 포스트를 찾되, 객체 전체를 부르지 않고
+데이터(String)만 개별적으로 필터링하여 가져옵니다.
+{% endcomment %}
+{% assign target_url = include.url %}
+{% assign posts = site.posts | where: "url", target_url %}
+{% assign p_title = posts | map: "title" | first %}
+{% assign p_image = posts | map: "image" | first %}
+
+{% comment %}
+핵심: content 대신 excerpt를 사용하며,
+Jekyll이 코드를 실행하기 전의 '순수 텍스트'만 뽑아냅니다.
+{% endcomment %}
+{% assign raw_excerpt = posts | map: "excerpt" | first %}
+{% assign p_desc = raw_excerpt | strip_html | strip_newlines | truncate: 150 %}
+
+{% if p_title %}
+<div class="recommended-post">
+    <h5 class="recommended-post-heading">
+        <span class="material-symbols-outlined">local_fire_department</span>
+        추천 글
+    </h5>
+    <a href="{{ target_url }}" class="recommended-post-card">
+        {% if p_image %}
+        <div class="recommended-post-image">
+            <img src="{{ p_image }}" alt="{{ p_title }}" loading="lazy">
+        </div>
+        {% endif %}
+
+        <div class="recommended-post-content">
+            <h6 class="recommended-post-title">{{ p_title }}</h6>
+            {% if p_desc and p_desc != "" %}
+            <p class="recommended-post-description">{{ p_desc }}</p>
+            {% endif %}
+            <span class="recommended-post-button">자세히보기</span>
+        </div>
+    </a>
+</div>
+{% endif %}

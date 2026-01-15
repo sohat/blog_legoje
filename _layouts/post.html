@@ -24,6 +24,7 @@ layout: default
                 </header>
 
                 <div class="entry-content" itemprop="text">
+                    {% include toc.html %}
                     {{ content }}
                 </div>
 
@@ -72,4 +73,4 @@ layout: default
     </main>
 </div>
 
-<script src="{{ '/assets/js/toc-fix.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/toc.js' | relative_url }}"></script>

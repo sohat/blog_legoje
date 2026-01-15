@@ -31,9 +31,6 @@ TICKET STYLING & COUPON EFFECT
     border-color: #dbdbdb;
 }
 
-/*  ================================================
-RIBBON EFFECT
-================================================  */
 .ticket .ribbon {
     position: absolute;
     display: block;
@@ -82,9 +79,6 @@ RIBBON EFFECT
     right: 0;
 }
 
-/*  ================================================
-CONTENT
-================================================  */
 .ticket span {
     display: block;
     font-size: 29px;
@@ -139,9 +133,6 @@ CONTENT
     font-weight: 600;
 }
 
-/*  ================================================
-ACTION CALL & ARROW UP EFFECT
-================================================  */
 .ticket .button {
     display: block;
     color: white;
@@ -171,7 +162,7 @@ ACTION CALL & ARROW UP EFFECT
     color: white;
 }
 
-.button::before {
+.ticket .button::before {
     content: "";
     position: absolute;
     top: -10px;
@@ -181,17 +172,182 @@ ACTION CALL & ARROW UP EFFECT
     border-bottom: 10px solid #61ce70;
 }
 
-.button.green::before {
+.ticket .button.green::before {
     border-bottom: 10px solid #61ce70;
 }
 
-.button.orange::before {
+.ticket .button.orange::before {
     border-bottom: 10px solid #ffa218;
 }
 
-.button.red::before {
+.ticket .button.red::before {
     border-bottom: 10px solid #E03A3E;
 }
+
+/* 모바일 대응 */
+@media (max-width: 600px) {
+    .ticket-container {
+        display: block;
+    }
+
+    .ticket-element {
+        width: 100%;
+        padding-bottom: 20px;
+    }
+
+    .ticket li {
+        margin-bottom: 7px !important;
+    }
+
+    .ticket ul {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+/* ==========================================================================
+   커스텀 버튼 스타일
+   ========================================================================== */
+
+.custom-button1-container {
+    margin: 20px;
+    text-decoration: none;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    max-width: 600px;
+    height: auto;
+    background-color: #eaf6ff;
+    color: black;
+    border: 5px solid #2196f3;
+    border-radius: 100px;
+    padding: 20px 10px;
+    cursor: pointer;
+}
+
+.custom-button1-container .custom-button1-img-container {
+    display: flex;
+    max-width: 30%;
+    height: auto;
+    flex-direction: row-reverse;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.custom-button1-container .custom-button1-text-container .first-line {
+    font-size: 75%
+}
+
+.custom-button1-container .custom-button1-text-container .second-line {
+    font-size: 90%;
+    font-weight: 600;
+    text-shadow: 0px 2px 5px rgba(0, 0, 0, .1);
+}
+
+.custom-button1-container .custom-button1-container.orange {
+    background-color: #fea931;
+    color: white;
+    font-weight: 600;
+    border: 3px solid #ffc200;
+    transition: all 0.2s linear 0s;
+}
+
+.custom-button1-container .custom-button1-container.orange:after {
+    content: "\2192";
+    font-size: 25px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+    opacity: 0;
+    height: 100%;
+    width: 0;
+    transition: all 0.2s linear 0s;
+    text-shadow: -1px 0 #9d671e, 0 1px #9d671e, 1px 0 #9d671e, 0 -1px #9d671e;
+}
+
+.custom-button1-container .custom-button1-container.orange .custom-button1-text-container .first-line {
+    font-weight: 700;
+    font-size: 100%
+}
+
+.custom-button1-container .custom-button1-container.orange .custom-button1-text-container .second-line {
+    font-size: 120%;
+    font-weight: 700;
+    text-shadow: -1px 0 #9d671e, 0 1px #9d671e, 1px 0 #9d671e, 0 -1px #9d671e;
+}
+
+@media (hover: hover) {
+    .custom-button1-container:hover {
+        color: blue;
+        text-decoration: underline;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07),
+        0 2px 4px rgba(0, 0, 0, 0.07),
+        0 4px 8px rgba(0, 0, 0, 0.07),
+        0 8px 16px rgba(0, 0, 0, 0.07),
+        0 16px 32px rgba(0, 0, 0, 0.07),
+        0 32px 64px rgba(0, 0, 0, 0.07);
+    }
+
+    .custom-button1-container.orange:hover {
+        background-color: #f28123;
+        color: white;
+        text-decoration: none;
+        box-shadow: none;
+        text-indent: -20px;
+    }
+
+    .custom-button1-container.orange:hover:after {
+        right: 0;
+        text-indent: 0px;
+        margin-left: 20px;
+        opacity: 1;
+    }
+}
+
+.custom-button1-a-attribute {
+    display: contents;;
+    -webkit-box-pack: center;
+    text-decoration: none;
+    color: #333333;
+}
+
+.custom-button1-container .custom-button1-text-container {
+    display: flex;
+    height: auto;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.custom-button1-text-container .first-line {
+    font-size: 110%
+}
+
+.custom-button1-text-container .second-line {
+    font-size: 140%;
+    font-weight: 600;
+}
+
+.custom-button1-container.orange .custom-button1-text-container .first-line {
+    font-weight: 700;
+    font-size: 122%
+}
+
+.custom-button1-container.orange .custom-button1-text-container .second-line {
+    font-size: 158%;
+    font-weight: 800;
+    text-shadow: -1px 0 #9d671e, 0 1px #9d671e, 1px 0 #9d671e, 0 -1px #9d671e;
+}
+
 
 /* ==========================================================================
    목차 스타일 (TOC Component)

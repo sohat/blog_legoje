@@ -1,0 +1,33 @@
+<div class="promo-container">
+    <div class="promo-content">
+        <div class="promo-info">
+            {% if include.label %}<span class="promo-label">{{ include.label }}</span>{% endif %}
+            <div class="promo-title">{{ include.title }}</div>
+            <p class="promo-desc">{{ include.desc }}</p>
+        </div>
+        <div class="promo-action">
+            <div class="promo-code-wrapper">
+                <span class="promo-code-text" id="promo-{{ include.code }}">{{ include.code }}</span>
+                <button class="promo-copy-btn" onclick="copyToClipboard('{{ include.code }}', this)">
+                    <span class="material-symbols-outlined">content_copy</span>
+                    <span class="btn-text">COPY</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function copyToClipboard(text, btn) {
+        navigator.clipboard.writeText(text).then(() => {
+            const originalHtml = btn.innerHTML;
+            btn.classList.add('copied');
+            btn.innerHTML = '<span class="material-symbols-outlined">check</span><span class="btn-text">COPIED!</span>';
+
+            setTimeout(() => {
+                btn.classList.remove('copied');
+                btn.innerHTML = originalHtml;
+            }, 2000);
+        });
+    }
+</script>

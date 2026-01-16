@@ -2572,7 +2572,7 @@ figure.wp-block-gallery.has-nested-images {
 .wp-block-gallery.has-nested-images figure.wp-block-image > a, .wp-block-gallery.has-nested-images figure.wp-block-image > div {
     flex-direction: column;
     flex-grow: 1;
-    margin: 0
+    margin: 0;
 }
 
 .wp-block-gallery.has-nested-images figure.wp-block-image img {
@@ -2770,7 +2770,9 @@ h1.has-text-align-left[style*=writing-mode]:where([style*=vertical-lr]), h1.has-
 }
 
 .wp-block-image > a, .wp-block-image > figure > a {
-    display: inline-block
+    //display: inline-block
+    display: block;
+    text-align: center;
 }
 
 .wp-block-image img {
@@ -5360,10 +5362,6 @@ ul.wp-block-rss.is-grid li {
 .wp-block-table table {
     border-collapse: collapse;
     width: 100%
-}
-
-.wp-block-table thead {
-    border-bottom: 3px solid
 }
 
 .wp-block-table tfoot {

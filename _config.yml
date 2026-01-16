@@ -53,7 +53,6 @@ exclude:
   - docs_backup
   - docs
   - _site              # 빌드 결과물이 다시 빌드되는 무한 루프 방지
-  # wp-content/uploads는 이미지 때문에 포함 (서버 실행 시 --no-watch 사용 권장)
 
 # Include (assets 폴더를 명시적으로 포함)
 include:

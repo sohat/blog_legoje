@@ -357,7 +357,7 @@ TICKET STYLING & COUPON EFFECT
     box-sizing: border-box;
 }
 
-.toc-title-container {
+#toc .toc-title-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -374,6 +374,11 @@ TICKET STYLING & COUPON EFFECT
     display: flex;
     align-items: center;
     gap: 6px;
+}
+
+#toc .toc-title .material-symbols-outlined {
+    --tw-text-opacity: 1;
+    color: rgb(255 136 0 / var(--tw-text-opacity, 1));
 }
 
 .toc-toggle {

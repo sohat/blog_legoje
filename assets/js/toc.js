@@ -6,11 +6,11 @@
         const tocContainer = document.getElementById('toc');
         if (!tocContainer) return;
 
-        // 본문에서 제목들 가져오기 (h2, h3, h4)
+        // 본문에서 제목들 가져오기 (h2, h3)
         const contentArea = document.querySelector('.entry-content');
         if (!contentArea) return;
 
-        const headings = contentArea.querySelectorAll('h2, h3, h4');
+        const headings = contentArea.querySelectorAll('h2, h3');
 
         // 제목이 2개 미만이면 목차 표시 안함
         if (headings.length < 2) {
@@ -82,22 +82,6 @@
                     // H2가 없으면 최상위에 추가
                     tocList.appendChild(li);
                     currentH3Item = li;
-                }
-            } else if (level === 4) {
-                // H4: H3 하위
-                if (currentH3Item) {
-                    if (!h3List) {
-                        h3List = document.createElement('ul');
-                        h3List.className = 'toc-list-level-4';
-                        currentH3Item.appendChild(h3List);
-                    }
-                    h3List.appendChild(li);
-                } else if (h2List) {
-                    // H3가 없지만 H2가 있으면 H2 하위에 추가
-                    h2List.appendChild(li);
-                } else {
-                    // 그 외에는 최상위에 추가
-                    tocList.appendChild(li);
                 }
             }
         });

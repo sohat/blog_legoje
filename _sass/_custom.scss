@@ -422,17 +422,25 @@ TICKET STYLING & COUPON EFFECT
     padding-left: 12px;
 }
 
-.toc-item.toc-heading-level-2 > a {
+#toc .toc-item.toc-heading-level-2 > a {
     font-weight: 500;
 }
 
-.toc-item.toc-heading-level-3 > a {
+#toc .toc-item.toc-heading-level-3 > a {
     font-size: 16px;
 }
 
-.toc-item.toc-heading-level-4 > a {
+#toc .toc-item.toc-heading-level-4 > a {
     font-size: 14px;
     color: #666;
+}
+
+#toc ul li::before {
+    content: none !important; /* 주황색 불렛 제거 */
+}
+
+#toc ul li {
+    padding-left: 0 !important; /* 불렛 공간만큼 밀렸던 여백 초기화 */
 }
 
 /* ==========================================================================

@@ -16,13 +16,19 @@ layout: default
                     <h1 class="entry-title" itemprop="headline">{{ page.title }}</h1>
                     <div class="entry-meta">
                         <span class="posted-on">
-                            <time class="updated" datetime="{{ page.date | date_to_xmlschema }}" itemprop="dateModified">{{ page.date | date: "%Y년 %m월 %d일" }}</time>
-                            <time class="entry-date published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%Y년 %m월 %d일" }}</time>
+                            <time class="entry-date published" datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+                                {{ page.date | date: "%Y년 %m월 %d일" }}
+                            </time>
+                            {% if page.last_modified_at %}
+                                <time class="updated" datetime="{{ page.last_modified_at | date_to_xmlschema }}" itemprop="dateModified">
+                                    (업데이트: {{ page.last_modified_at | date: "%Y년 %m월 %d일" }})
+                                </time>
+                            {% else %}
+                                <meta itemprop="dateModified" content="{{ page.date | date_to_xmlschema }}">
+                            {% endif %}
                         </span>
-                        <span class="byline">by <span class="author vcard" itemprop="author" itemtype="https://schema.org/Person" itemscope=""><a class="url fn n" href="/author/{{ page.author | default: 'parkmy' }}/" title="View all posts by {{ page.author | default: 'Legoje' }}" rel="author" itemprop="url"><span class="author-name" itemprop="name">{{ page.author | default: 'Legoje' }}</span></a></span></span>
                     </div>
                 </header>
-
                 <div class="entry-content" itemprop="text">
                     {% include toc.html %}
                     {{ content }}

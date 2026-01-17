@@ -705,18 +705,6 @@ a {
     display: block
 }
 
-.entry-header .gp-icon, .posted-on .updated {
-    display: none
-}
-
-.byline, .entry-header .cat-links, .entry-header .comments-link, .entry-header .tags-links, .group-blog .byline, .single .byline {
-    display: inline
-}
-
-footer.entry-meta .byline, footer.entry-meta .posted-on {
-    display: block
-}
-
 .entry-content:not(:first-child), .entry-summary:not(:first-child), .page-content:not(:first-child) {
     margin-top: 2em
 }
@@ -3982,13 +3970,6 @@ p.has-text-align-left[style*="writing-mode:vertical-lr"], p.has-text-align-right
     box-sizing: border-box;
     display: flex;
     flex-wrap: wrap
-}
-
-.wp-block-post-author__byline {
-    font-size: .5em;
-    margin-bottom: 0;
-    margin-top: 0;
-    width: 100%
 }
 
 .wp-block-post-author__avatar {

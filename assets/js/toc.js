@@ -1,41 +1,44 @@
-// 목차(TOC) 자동 생성 컴포넌트
+// 목차(TOC) 자동 생성 컴포넌트 (최종 수정본)
 (function() {
     'use strict';
 
-    document.addEventListener('DOMContentLoaded', function() {
+    function initTOC() {
         const tocContainer = document.getElementById('toc');
-        if (!tocContainer) return;
+        if (!tocContainer) {
+            console.log('TOC: #toc 컨테이너를 찾을 수 없습니다.');
+            return;
+        }
 
         const contentArea = document.querySelector('.entry-content');
-        if (!contentArea) return;
+        if (!contentArea) {
+            console.log('TOC: .entry-content 영역을 찾을 수 없습니다.');
+            return;
+        }
 
-        // 1. h2와 h3를 모두 파악합니다.
+        // 1. h2와 h3 파악
         const h2Headings = contentArea.querySelectorAll('h2');
-        const h3Headings = contentArea.querySelectorAll('h3');
-
         let selector = '';
 
         // 2. 조건별 추출 로직 결정
         if (h2Headings.length === 0) {
-            // H2가 아예 없으면 H3를 메인으로 수집
-            selector = 'h3';
+            selector = 'h3'; // H2 없으면 H3만
         } else if (h2Headings.length === 1) {
-            // H2가 1개면 보조를 위해 H3까지 수집
-            selector = 'h2, h3';
+            selector = 'h2, h3'; // H2 1개면 H3까지
         } else {
-            // H2가 여러 개면 깔끔하게 H2만 수집
-            selector = 'h2';
+            selector = 'h2'; // H2 여러 개면 H2만
         }
 
         const headings = contentArea.querySelectorAll(selector);
+        console.log('TOC: 선택된 제목 개수 =', headings.length);
 
-        // 제목이 2개 미만이면 목차 표시 안함
+        // 제목이 2개 미만이면 숨김
         if (headings.length < 2) {
-            tocContainer.style.display = 'none';
+            tocContainer.style.setProperty('display', 'none', 'important');
             return;
         }
 
-        tocContainer.style.display = 'table';
+        // 목차 강제 표시 (CSS 우선순위 무시를 위해 !important 스타일 적용)
+        tocContainer.style.setProperty('display', 'table', 'important');
 
         const tocList = document.createElement('ul');
         tocList.className = 'toc-list toc-list-level-1';
@@ -51,7 +54,6 @@
             heading.id = id;
 
             const li = document.createElement('li');
-            // H2가 없을 때 H3가 최상위면 레벨을 2로 시각적 처리 (CSS 일관성)
             const displayLevel = (h2Headings.length === 0 && heading.tagName === 'H3') ? '2' : heading.tagName.charAt(1);
             li.className = 'toc-item toc-heading-level-' + displayLevel;
 
@@ -72,12 +74,10 @@
 
             // 계층 구조 처리
             if (level === 2 || (h2Headings.length === 0 && level === 3)) {
-                // H2이거나, H2가 없는 상태에서 H3인 경우 (최상위)
                 currentH2Item = li;
                 h2List = null;
                 tocList.appendChild(li);
             } else if (level === 3) {
-                // H2 하위의 H3인 경우
                 if (currentH2Item) {
                     if (!h2List) {
                         h2List = document.createElement('ul');
@@ -93,8 +93,10 @@
         if (nav) {
             nav.innerHTML = '';
             nav.appendChild(tocList);
+            nav.style.display = 'block'; // nav 영역도 확실히 표시
         }
 
+        // 토글 기능
         const toggleBtn = tocContainer.querySelector('.toc-toggle');
         if (toggleBtn && nav) {
             let isOpen = true;
@@ -104,5 +106,12 @@
                 nav.style.display = isOpen ? 'block' : 'none';
             });
         }
-    });
+    }
+
+    // DOM이 이미 로드되었는지 확인 후 실행
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTOC);
+    } else {
+        initTOC();
+    }
 })();

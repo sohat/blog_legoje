@@ -10,7 +10,7 @@
                 <span class="promo-code-text" id="promo-{{ include.code }}">{{ include.code }}</span>
                 <button class="promo-copy-btn" onclick="copyToClipboard('{{ include.code }}', this)">
                     <span class="material-symbols-outlined">content_copy</span>
-                    <span class="btn-text">COPY</span>
+                    <span class="btn-text">복사</span>
                 </button>
             </div>
         </div>
@@ -22,7 +22,7 @@
         navigator.clipboard.writeText(text).then(() => {
             const originalHtml = btn.innerHTML;
             btn.classList.add('copied');
-            btn.innerHTML = '<span class="material-symbols-outlined">check</span><span class="btn-text">COPIED!</span>';
+            btn.innerHTML = '<span class="material-symbols-outlined">check</span><span class="btn-text">복사 완료!</span>';
 
             setTimeout(() => {
                 btn.classList.remove('copied');

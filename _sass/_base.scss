@@ -16,7 +16,8 @@ html {
     -webkit-text-size-adjust: 100%;
     -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
 }
 
 main {
@@ -25,10 +26,6 @@ main {
 
 progress {
     vertical-align: baseline
-}
-
-html {
-    box-sizing: border-box
 }
 
 *, ::after, ::before {
@@ -100,30 +97,6 @@ blockquote {
 
 blockquote p:last-child {
     margin: 0
-}
-
-table, td, th {
-    border: 1px solid rgba(0, 0, 0, .1)
-}
-
-table {
-    border-collapse: separate;
-    border-spacing: 0;
-    border-width: 1px 0 0 1px;
-    margin: 0 0 1.5em;
-    width: 100%
-}
-
-td, th {
-    padding: 8px
-}
-
-th {
-    border-width: 0 1px 1px 0
-}
-
-td {
-    border-width: 0 1px 1px 0
 }
 
 hr {
@@ -277,15 +250,6 @@ big {
 
 figure {
     margin: 0
-}
-
-table {
-    margin: 0 0 1.5em;
-    width: 100%
-}
-
-th {
-    font-weight: 700
 }
 
 img {
@@ -974,10 +938,6 @@ embed, iframe, object {
     margin-top: .5em
 }
 
-.wp-calendar-table {
-    table-layout: fixed
-}
-
 .site-content {
     display: flex
 }
@@ -1603,31 +1563,6 @@ nav.toggled ul ul.sub-menu {
 
 .wp-block-calendar caption {
     background-color: inherit
-}
-
-.wp-block-calendar table {
-    border-collapse: collapse;
-    width: 100%
-}
-
-.wp-block-calendar table:where(:not(.has-text-color)) {
-    color: #40464d
-}
-
-.wp-block-calendar table:where(:not(.has-text-color)) td, .wp-block-calendar table:where(:not(.has-text-color)) th {
-    border-color: #ddd
-}
-
-.wp-block-calendar table.has-background th {
-    background-color: inherit
-}
-
-.wp-block-calendar table.has-text-color th {
-    color: inherit
-}
-
-:where(.wp-block-calendar table:not(.has-background) th) {
-    background: #ddd
 }
 
 .wp-block-categories {
@@ -5355,130 +5290,6 @@ ul.wp-block-rss.is-grid li {
     text-decoration: none !important
 }
 
-.wp-block-table {
-    overflow-x: auto
-}
-
-.wp-block-table table {
-    border-collapse: collapse;
-    width: 100%
-}
-
-.wp-block-table tfoot {
-    border-top: 3px solid
-}
-
-.wp-block-table td, .wp-block-table th {
-    border: 1px solid;
-    padding: .5em
-}
-
-.wp-block-table .has-fixed-layout {
-    table-layout: fixed;
-    width: 100%
-}
-
-.wp-block-table .has-fixed-layout td, .wp-block-table .has-fixed-layout th {
-    word-break: break-word
-}
-
-.wp-block-table.aligncenter, .wp-block-table.alignleft, .wp-block-table.alignright {
-    display: table;
-    width: auto
-}
-
-.wp-block-table.aligncenter td, .wp-block-table.aligncenter th, .wp-block-table.alignleft td, .wp-block-table.alignleft th, .wp-block-table.alignright td, .wp-block-table.alignright th {
-    word-break: break-word
-}
-
-.wp-block-table .has-subtle-light-gray-background-color {
-    background-color: #f3f4f5
-}
-
-.wp-block-table .has-subtle-pale-green-background-color {
-    background-color: #e9fbe5
-}
-
-.wp-block-table .has-subtle-pale-blue-background-color {
-    background-color: #e7f5fe
-}
-
-.wp-block-table .has-subtle-pale-pink-background-color {
-    background-color: #fcf0ef
-}
-
-.wp-block-table.is-style-stripes {
-    background-color: initial;
-    border-bottom: 1px solid #f0f0f0;
-    border-collapse: inherit;
-    border-spacing: 0
-}
-
-.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
-    background-color: #f0f0f0
-}
-
-.wp-block-table.is-style-stripes.has-subtle-light-gray-background-color tbody tr:nth-child(odd) {
-    background-color: #f3f4f5
-}
-
-.wp-block-table.is-style-stripes.has-subtle-pale-green-background-color tbody tr:nth-child(odd) {
-    background-color: #e9fbe5
-}
-
-.wp-block-table.is-style-stripes.has-subtle-pale-blue-background-color tbody tr:nth-child(odd) {
-    background-color: #e7f5fe
-}
-
-.wp-block-table.is-style-stripes.has-subtle-pale-pink-background-color tbody tr:nth-child(odd) {
-    background-color: #fcf0ef
-}
-
-.wp-block-table.is-style-stripes td, .wp-block-table.is-style-stripes th {
-    border-color: #0000
-}
-
-.wp-block-table .has-border-color td, .wp-block-table .has-border-color th, .wp-block-table .has-border-color tr, .wp-block-table .has-border-color > * {
-    border-color: inherit
-}
-
-.wp-block-table table[style*=border-top-color] tr:first-child, .wp-block-table table[style*=border-top-color] tr:first-child td, .wp-block-table table[style*=border-top-color] tr:first-child th, .wp-block-table table[style*=border-top-color] > *, .wp-block-table table[style*=border-top-color] > * td, .wp-block-table table[style*=border-top-color] > * th {
-    border-top-color: inherit
-}
-
-.wp-block-table table[style*=border-top-color] tr:not(:first-child) {
-    border-top-color: initial
-}
-
-.wp-block-table table[style*=border-right-color] td:last-child, .wp-block-table table[style*=border-right-color] th, .wp-block-table table[style*=border-right-color] tr, .wp-block-table table[style*=border-right-color] > * {
-    border-right-color: inherit
-}
-
-.wp-block-table table[style*=border-bottom-color] tr:last-child, .wp-block-table table[style*=border-bottom-color] tr:last-child td, .wp-block-table table[style*=border-bottom-color] tr:last-child th, .wp-block-table table[style*=border-bottom-color] > *, .wp-block-table table[style*=border-bottom-color] > * td, .wp-block-table table[style*=border-bottom-color] > * th {
-    border-bottom-color: inherit
-}
-
-.wp-block-table table[style*=border-bottom-color] tr:not(:last-child) {
-    border-bottom-color: initial
-}
-
-.wp-block-table table[style*=border-left-color] td:first-child, .wp-block-table table[style*=border-left-color] th, .wp-block-table table[style*=border-left-color] tr, .wp-block-table table[style*=border-left-color] > * {
-    border-left-color: inherit
-}
-
-.wp-block-table table[style*=border-style] td, .wp-block-table table[style*=border-style] th, .wp-block-table table[style*=border-style] tr, .wp-block-table table[style*=border-style] > * {
-    border-style: inherit
-}
-
-.wp-block-table table[style*=border-width] td, .wp-block-table table[style*=border-width] th, .wp-block-table table[style*=border-width] tr, .wp-block-table table[style*=border-width] > * {
-    border-style: inherit;
-    border-width: inherit
-}
-
-:root:where(.wp-block-table-of-contents) {
-    box-sizing: border-box
-}
-
 :where(.wp-block-term-description) {
     box-sizing: border-box;
     margin-bottom: var(--wp--style--block-gap);
@@ -5890,13 +5701,6 @@ ol.comment-list {
 #cancel-comment-reply-link {
     padding-left: 10px
 }
-
-blockquote, body, dd, dl, dt, fieldset, figure, h1, h2, h3, h4, h5, h6, hr, html, iframe, legend, li, ol, p, pre, textarea, ul {
-    margin: 0;
-    padding: 0;
-    border: 0
-}
-
 
 /* ==========================================================================
    4. 커스텀 스타일
@@ -6570,10 +6374,6 @@ a.generate-back-to-top:hover, a.generate-back-to-top:focus {
 
     div.entry-content > h5 {
         font-size: 100%
-    }
-
-    .content-area .wp-block-table .wp-element-caption {
-        font-size: 90%;
     }
 }
 

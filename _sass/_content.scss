@@ -10,6 +10,8 @@
 
 .site-content .content-area {
     width: 90%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .site-content .content-area strong a {
@@ -78,10 +80,10 @@ div.entry-content > h4 {
 }
 div.entry-content > h5 {
     font-weight: 500;
-    font-size: 1.125rem;
+    font-size: 1.05rem;
     font-style: italic;
-    padding: 1.5rem;
-    margin: 2rem 0;
+    padding: 1.1rem;
+    margin: 1rem 0;
     background-color: #f9fafb;
     border-radius: 0.5rem;
     color: #4b5563;
@@ -120,7 +122,9 @@ div.entry-content > h5 {
 
 /* 컨텐츠 내부 테이블 스타일 */
 .content-area table {
-    width: 100%;
+    width: auto;
+    min-width: 400px;
+    max-width: 100%;
     border-collapse: collapse;
     margin: 2.5rem 0;
     border: 1px solid #eee;
@@ -131,42 +135,37 @@ div.entry-content > h5 {
 
 .content-area table th {
     background-color: #e67e22;
-    padding: 1.1rem 1.25rem;
+    padding: 12px 25px;
     text-align: center;
     font-weight: 700;
     color: #ffffff !important;
     font-size: 1.05rem;
     white-space: nowrap;
-    text-transform: none;
-    letter-spacing: 0;
+    //text-transform: none;
+    //letter-spacing: 0;
     border: none;
 }
 
 .content-area table td {
-    padding: 1.25rem;
-    border: 1px solid #f3f4f6;
-    background-color: #fafafa;
-    color: #4b5563;
-    line-height: 1.6;
+    padding: 15px 25px;
+    border: 1px solid #f1f5f9;
+    background-color: #fafbfc;
+    color: #374151;
+    line-height: 1.7;
     vertical-align: middle;
+    //white-space: nowrap;
 }
 
 .content-area table td:first-child {
     font-weight: 600;
     color: #111827;
     background-color: #f8fafc;
-    width: 20%;
+    border-right: 1px solid #edf2f7;
 }
 
 .content-area table tr:hover td {
     background-color: #f1f5f9;
     transition: background-color 0.2s ease;
-}
-
-@media screen and (max-width: 601px) {
-    .content-area table tr:nth-child(2) {
-        border-top: none;
-    }
 }
 
 .content-area ul {
@@ -233,4 +232,21 @@ div.entry-content > h5 {
 .entry-content .alignwide {
     width: 100%;
     margin: 0;
+}
+
+
+@media screen and (max-width: 768px) {
+    .content-area table {
+        display: block;
+        width: 100%;
+        min-width: 100%;
+        overflow-x: auto;
+    }
+
+    .content-area table th, .content-area table td {
+        white-space: nowrap;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        word-break: keep-all;
+    }
 }

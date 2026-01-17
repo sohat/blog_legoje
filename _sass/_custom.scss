@@ -13,25 +13,26 @@ TICKET STYLING & COUPON EFFECT
 
 .ticket-element {
     width: 33.333%;
-    height: 480px;
+    height: auto;
     position: relative;
     padding: 10px;
     display: flex;
 }
 
-.ticket {
+.ticket-container .ticket {
     position: relative;
-    display: table;
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     width: 100%;
     background: #F4F4F4;
     text-align: center;
-    border-style: solid;
-    border-width: 2px 2px 2px 2px;
-    border-color: #dbdbdb;
+    border: 2px solid #dbdbdb;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
-.ticket .ribbon {
+.ticket-container .ticket .ribbon {
     position: absolute;
     display: block;
     top: -4px;
@@ -41,7 +42,7 @@ TICKET STYLING & COUPON EFFECT
     overflow: hidden;
 }
 
-.ticket .ribbon .label {
+.ticket-container .ticket .ribbon .label {
     position: relative;
     display: block;
     left: -10px;
@@ -62,7 +63,7 @@ TICKET STYLING & COUPON EFFECT
     transform: rotate(45deg) translate3d(0, 0, 0);
 }
 
-.ticket .label:before, .label:after {
+.ticket-container .ticket .label:before, .label:after {
     content: '';
     position: absolute;
     bottom: -4px;
@@ -71,29 +72,29 @@ TICKET STYLING & COUPON EFFECT
     border-right: 4px solid transparent;
 }
 
-.ticket .label:before {
+.ticket-container .ticket .label:before {
     left: 0;
 }
 
-.ticket .label:after {
+.ticket-container .ticket .label:after {
     right: 0;
 }
 
-.ticket span {
+.ticket-container .ticket span {
     display: block;
     font-size: 29px;
     color: #540c5d;
     font-weight: 700;
 }
 
-.ticket strong {
+.ticket-container .ticket strong {
     display: block;
     font-size: 75px;
     color: #a52958;
     margin: 0 0 10px 0;
 }
 
-.ticket em {
+.ticket-container .ticket em {
     display: block;
     font-size: 22px;
     font-style: normal;
@@ -103,18 +104,22 @@ TICKET STYLING & COUPON EFFECT
     font-weight: 700;
 }
 
-.ticket ul {
-    padding: 10px 0;
-    margin: 0;
+.ticket-container .ticket ul {
 }
 
-.ticket li {
+.ticket-container .ticket ul li {
     font-size: 16px !important;
     list-style: none !important;
     padding-bottom: 10px;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
 }
 
-.ticket a, .ticket a.link {
+.ticket-container ul li::before {
+    content: none !important;
+}
+
+.ticket-container .ticket a, .ticket-container .ticket a.link {
     display: block;
     padding: 33px 0 0 0;
     color: #313131;
@@ -122,7 +127,7 @@ TICKET STYLING & COUPON EFFECT
     cursor: pointer;
 }
 
-.ticket .code {
+.ticket-container .ticket .code {
     border: 1px dashed green;
     width: 50%;
     text-align: center;
@@ -133,36 +138,30 @@ TICKET STYLING & COUPON EFFECT
     font-weight: 600;
 }
 
-.ticket .button {
+.ticket-container .ticket .button {
+    position: relative;
     display: block;
-    color: white;
-    position: absolute;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    height: 57px;
-    padding: 0;
-    line-height: 58px;
+    padding: 15px 0;
     text-align: center;
-    border-radius: 0;
-    cursor: pointer;
-    font-weight: 600;
+    text-decoration: none;
+    margin-top: auto;
 }
 
-.ticket .button.green {
+.ticket-container .ticket .button.green {
     background-color: #61ce70;
 }
 
-.ticket .button.orange {
+.ticket-container .ticket .button.orange {
     background-color: #ffa218;
 }
 
-.ticket .button.red {
+.ticket-container .ticket .button.red {
     background-color: #E03A3E;
     color: white;
 }
 
-.ticket .button::before {
+.ticket-container .ticket .button::before {
     content: "";
     position: absolute;
     top: -10px;
@@ -172,15 +171,15 @@ TICKET STYLING & COUPON EFFECT
     border-bottom: 10px solid #61ce70;
 }
 
-.ticket .button.green::before {
+.ticket-container .ticket .button.green::before {
     border-bottom: 10px solid #61ce70;
 }
 
-.ticket .button.orange::before {
+.ticket-container .ticket .button.orange::before {
     border-bottom: 10px solid #ffa218;
 }
 
-.ticket .button.red::before {
+.ticket-container .ticket .button.red::before {
     border-bottom: 10px solid #E03A3E;
 }
 

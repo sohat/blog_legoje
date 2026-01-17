@@ -2,5 +2,9 @@
 # 사용법: bundle exec jekyll serve --config _config.yml,_config_dev.yml
 
 sass:
-  style: expanded    # 가독성 좋게 출력
-  sourcemap: always  # 개발자 도구에서 원본 파일명 표시 (_base.scss, _header.scss 등)
+  style: expanded
+  sourcemap: always
+
+# 로컬 개발 시 유용한 추가 설정
+incremental: true
+url: "http://localhost:4000"

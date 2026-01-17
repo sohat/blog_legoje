@@ -3,20 +3,21 @@ title: "내가 궁금해서 시작한 블로그"
 description: "돈 되는 금융 이벤트와 가입 혜택 초대코드를 빠르게 공유합니다. 실생활에 유익한 경제 정보를 정성껏 기록합니다."
 url: "https://legoje.com"
 baseurl: ""
-author: "Legoje"
+author:
+  name: "Legoje" # JSON-LD 및 SEO 태그 호환성을 위해 구조화
 
 # Build settings
 source: .
 destination: _site
 markdown: kramdown
-theme: null  # 기본 minima 테마 비활성화 (CSS 덮어쓰기 방지)
+theme: null  # 기본 테마 비활성화
 highlighter: rouge
 permalink: /:title/
 
 # Sass 설정
 sass:
   sass_dir: _sass
-  style: compressed  # 배포 시 minify (expanded로 변경하면 가독성 좋음)
+  style: compressed  # CSS 파일 용량을 최소화하여 로딩 속도 향상
 
 # Pagination
 paginate: 10
@@ -30,6 +31,7 @@ plugins:
   - jekyll-paginate
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-include-cache
 
 # Defaults
 defaults:
@@ -39,7 +41,7 @@ defaults:
     values:
       layout: "post"
 
-# Exclude from build (CPU 폭주 방지 및 찌꺼기 제거)
+# Exclude from build (빌드 속도 저하 및 무한 루프 방지)
 exclude:
   - .idea
   - .jekyll-cache
@@ -52,14 +54,16 @@ exclude:
   - "*.py"
   - docs_backup
   - docs
-  - _site              # 빌드 결과물이 다시 빌드되는 무한 루프 방지
+  - _site
+  - README.md
+  - LICENSE
 
-# Include (assets 폴더를 명시적으로 포함)
+# Include (필요한 리소스 명시)
 include:
   - _pages
-  - assets     # CSS가 무시되지 않도록 명시
+  - assets
 
-# HTML Minify 설정 (빌드 결과물만 압축, 소스는 그대로)
+# HTML Minify 설정 (플러그인 없이 Liquid로 처리하는 경우 대비)
 compress_html:
   clippings: all
   comments: all

@@ -1,45 +1,31 @@
-// 목차(TOC) 자동 생성 컴포넌트 (최종 수정본)
+/**
+ * 목차(TOC) 자동 생성 컴포넌트 - 최종 배포 버전
+ * 실행 시점 지연 및 CSS 강제 주입 로직 포함
+ */
 (function() {
     'use strict';
 
-    function initTOC() {
+    function buildTOC() {
+        // 1. 필수 요소 정의
         const tocContainer = document.getElementById('toc');
-        if (!tocContainer) {
-            console.log('TOC: #toc 컨테이너를 찾을 수 없습니다.');
-            return;
-        }
-
         const contentArea = document.querySelector('.entry-content');
-        if (!contentArea) {
-            console.log('TOC: .entry-content 영역을 찾을 수 없습니다.');
-            return;
-        }
+        const navElement = document.querySelector('#toc nav');
 
-        // 1. h2와 h3 파악
+        // 요소가 하나라도 없으면 중단
+        if (!tocContainer || !contentArea || !navElement) return;
+
+        // 2. 제목 수집 로직
         const h2Headings = contentArea.querySelectorAll('h2');
-        let selector = '';
-
-        // 2. 조건별 추출 로직 결정
-        if (h2Headings.length === 0) {
-            selector = 'h3'; // H2 없으면 H3만
-        } else if (h2Headings.length === 1) {
-            selector = 'h2, h3'; // H2 1개면 H3까지
-        } else {
-            selector = 'h2'; // H2 여러 개면 H2만
-        }
-
+        let selector = (h2Headings.length <= 1) ? 'h2, h3' : 'h2';
         const headings = contentArea.querySelectorAll(selector);
-        console.log('TOC: 선택된 제목 개수 =', headings.length);
 
-        // 제목이 2개 미만이면 숨김
+        // 3. 조건부 노출 (제목이 2개 미만일 때)
         if (headings.length < 2) {
             tocContainer.style.setProperty('display', 'none', 'important');
             return;
         }
 
-        // 목차 강제 표시 (CSS 우선순위 무시를 위해 !important 스타일 적용)
-        tocContainer.style.setProperty('display', 'table', 'important');
-
+        // 4. 리스트 생성
         const tocList = document.createElement('ul');
         tocList.className = 'toc-list toc-list-level-1';
 
@@ -50,18 +36,20 @@
             const headingText = heading.textContent.trim();
             if (!headingText) return;
 
-            const id = 'toc-' + index;
+            // ID 부여 및 스크롤 위치 보정용 스타일
+            const id = 'toc-item-' + index;
             heading.id = id;
 
             const li = document.createElement('li');
-            const displayLevel = (h2Headings.length === 0 && heading.tagName === 'H3') ? '2' : heading.tagName.charAt(1);
-            li.className = 'toc-item toc-heading-level-' + displayLevel;
+            const level = parseInt(heading.tagName.charAt(1));
+            li.className = 'toc-item toc-heading-level-' + level;
 
             const link = document.createElement('a');
             link.className = 'toc-link';
             link.href = '#' + id;
             link.textContent = headingText;
 
+            // 부드러운 스크롤 이벤트
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 heading.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -70,48 +58,34 @@
 
             li.appendChild(link);
 
-            const level = parseInt(heading.tagName.charAt(1));
-
-            // 계층 구조 처리
+            // 계층 구조 (H2-H3) 처리
             if (level === 2 || (h2Headings.length === 0 && level === 3)) {
                 currentH2Item = li;
                 h2List = null;
                 tocList.appendChild(li);
-            } else if (level === 3) {
-                if (currentH2Item) {
-                    if (!h2List) {
-                        h2List = document.createElement('ul');
-                        h2List.className = 'toc-list-level-3';
-                        currentH2Item.appendChild(h2List);
-                    }
-                    h2List.appendChild(li);
+            } else if (level === 3 && currentH2Item) {
+                if (!h2List) {
+                    h2List = document.createElement('ul');
+                    h2List.className = 'toc-list-level-3';
+                    currentH2Item.appendChild(h2List);
                 }
+                h2List.appendChild(li);
             }
         });
 
-        const nav = tocContainer.querySelector('nav');
-        if (nav) {
-            nav.innerHTML = '';
-            nav.appendChild(tocList);
-            nav.style.display = 'block'; // nav 영역도 확실히 표시
-        }
+        // 5. 화면에 주입 및 강제 노출
+        navElement.innerHTML = '';
+        navElement.appendChild(tocList);
 
-        // 토글 기능
-        const toggleBtn = tocContainer.querySelector('.toc-toggle');
-        if (toggleBtn && nav) {
-            let isOpen = true;
-            toggleBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                isOpen = !isOpen;
-                nav.style.display = isOpen ? 'block' : 'none';
-            });
-        }
+        // CSS 우선순위 문제를 해결하기 위해 !important 스타일 강제 부여
+        tocContainer.style.setProperty('display', 'table', 'important');
+        navElement.style.setProperty('display', 'block', 'important');
     }
 
-    // DOM이 이미 로드되었는지 확인 후 실행
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initTOC);
+    // [핵심] 페이지의 모든 리소스(이미지, 다른 JS)가 로드된 후 실행
+    if (document.readyState === 'complete') {
+        buildTOC();
     } else {
-        initTOC();
+        window.addEventListener('load', buildTOC);
     }
 })();

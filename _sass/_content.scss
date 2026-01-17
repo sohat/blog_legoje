@@ -73,14 +73,14 @@ div.entry-content > h3 {
 }
 div.entry-content > h4 {
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
     line-height: 1.4;
 }
 div.entry-content > h5 {
     font-weight: 500;
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-style: italic;
     padding: 1.1rem;
     margin: 1rem 0;
@@ -230,6 +230,56 @@ div.entry-content > h5 {
 }
 
 .entry-content .alignwide {
+    width: 100%;
+    margin: 0;
+}
+
+/* 앱 다운로드 컨테이너 */
+.content-area div.app-download-container {
+    display: flex !important;
+    flex-direction: column !important; /* 수직 쌓기 */
+    align-items: center !important;   /* 중앙 정렬 */
+    gap: 15px !important;            /* 버튼 사이 간격 */
+    margin: 25px 0 !important;
+}
+
+/* a 태그 제어 */
+.content-area .app-download-container a.custom-button1-a-attribute {
+    display: block !important;
+    width: 100% !important;
+    max-width: 500px !important;    /* 버튼 가로 길이 (이미지에 맞춰 조정) */
+    text-decoration: none !important;
+}
+
+/* 내부 버튼 컨테이너 제어 */
+.content-area .app-download-container .custom-button1-container {
+    max-width: 100% !important;     /* 인라인 max-width: 250px 무시 */
+    width: 100% !important;
+    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+/* 버튼 컨테이너 강제 중앙 및 수직 정렬 */
+.content-area div[style*="display: flex"] {
+    display: flex !important;
+    flex-direction: column !important; /* 가로가 아닌 세로로 쌓기 */
+    align-items: center !important;   /* 중앙 정렬 */
+    width: 100% !important;
+}
+
+/* 개별 버튼(a 태그) 가로폭 확장 */
+.content-area div[style*="display: flex"] a.custom-button1-a-attribute {
+    display: block !important;
+    width: 100% !important;           /* 부모 너비 꽉 채우기 */
+    max-width: 500px !important;      /* 어바웃펫 이미지와 유사한 최적의 가로 길이 */
+    margin: 10px 0 !important;        /* 버튼 사이 위아래 간격 */
+    text-decoration: none !important;
+}
+
+/* 내부 컨테이너 인라인 제한 해제 */
+.content-area .custom-button1-container {
+    max-width: 100%;       /* 인라인의 250px 또는 650px 무시 */
     width: 100%;
     margin: 0;
 }

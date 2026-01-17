@@ -1,0 +1,32 @@
+name: Monthly Post Date Update
+
+on:
+  schedule:
+    - cron: '0 4 1 * *' # 매월 1일 오후 1시 (한국시간)
+  workflow_dispatch:   # 수동 실행 버튼
+
+permissions:
+  contents: write      # 날짜를 수정해서 다시 저장(Write)하기 위해 필수!
+
+jobs:
+  update-and-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4 # Ruby 대신 Python을 셋팅합니다
+        with:
+          python-version: '3.x'
+
+      - name: Run update script
+        run: python3 update_last_modified_date.py
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add .
+          # 수정사항이 있을 때만 커밋합니다
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Monthly SEO Date Update" && git push)

@@ -34,14 +34,23 @@ desc="{{ 초대코드혜택 }}"
 </p>
 
 <!-- 첫번째 이미지(image-1.webp) -->
+{% if page.image_1_url %}
+<h4> 해당 배너를 클릭 후 가입하시면 자동으로 포인트가 적립됩니다.</h4>
+{% endif %}
 <div class="wp-block-image">
     <figure class="aligncenter size-full is-resized">
-        <img loading="lazy" decoding="async" 
-             width="1022" height="1624"
-             src="/assets/img/{{ page.date | date: '%Y/%m/%d' }}/image-1.webp"
-             alt="{{ 서비스명 }} 초대코드 회원가입"
-             style="width:400px"
-             sizes="(max-width: 1022px) 100vw, 1022px">
+        {% if page.image_1_url %}
+        <a href="{{ page.image_1_url }}" target="_blank" rel="noopener noreferrer">
+            {% endif %}
+            <img loading="lazy" decoding="async"
+                 width="1022" height="1624"
+                 src="/assets/img/{{ page.date | date: '%Y/%m/%d' }}/image-1.webp"
+                 alt="{{ page.서비스명 }} 초대코드 회원가입"
+                 style="width:400px; height:auto;"
+                 sizes="(max-width: 1022px) 100vw, 1022px">
+            {% if page.image_1_url %}
+        </a>
+        {% endif %}
     </figure>
 </div>
 <p>초대코드 입력 시 혜택 : <strong>{{ 초대코드혜택 }}</strong> ({{ 구매조건 | default: '금액 상관없이' }} 적용)</p>
@@ -135,24 +144,32 @@ desc="{{ 초대코드혜택 }}"
 <!-- h2 > 신규회원, 기존회원 혜택 -->
 <h2 class=wp-block-heading>⭐ {{ 서비스명 }} 기존 회원 쿠폰 받기 (신규회원도 필수 적용)</h2>
 
-<!-- 세번째 이미지(image-3.webp) -->
-<div class="wp-block-image">
-    <figure class="aligncenter size-full is-resized">
-        <img loading="lazy" decoding="async"
-             width="1022" height="1778"
-             src="/assets/img/{{ page.date | date: '%Y/%m/%d' }}/image-3.webp"
-             alt="{{ 서비스명 }} 기존회원 혜택"
-             style="width:500px"
-             sizes="(max-width: 1022px) 100vw, 1022px">
-    </figure>
-</div>
-
 <!-- 기존회원 혜택 리스트 -->
 {% if page.existing_user_benefits %}
 {% for section in page.existing_user_benefits %}
 <h3 class="wp-block-heading">{{ section.title }}</h3>
 {% if section.description %}<p>{{ section.description }}</p>{% endif %}
 
+{% if section.sub_items %}
+{% for item in section.sub_items %}<h4>{{ item }}</h4>{% endfor %}
+{% endif %}
+
+{% if section.image_name %}
+<div class="wp-block-image">
+    <figure class="aligncenter size-full is-resized">
+        <img loading="lazy" decoding="async"
+             width="1022" height="1778"
+             src="/assets/img/{{ page.date | date: '%Y/%m/%d' }}/{{ section.image_name }}"
+             alt="{{ page.서비스명 }} 기존회원 혜택 - {{ section.title }}"
+             style="width:500px"
+             sizes="(max-width: 1022px) 100vw, 1022px">
+    </figure>
+</div>
+{% endif %}
+
+{% if section.footer_text %}<p>{{ section.footer_text }}</p>{% endif %}
+{% endfor %}
+{% endif %}
 {% if section.sub_items %}
 {% for item in section.sub_items %}
 <h5>{{ item }}</h5>

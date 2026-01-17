@@ -1,6 +1,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="{{ '/assets/img/2023/06/lisa-favicon.png' | relative_url }}" type="image/png">
+<link rel="icon" href="{{ '/assets/img/2023/06/lisa-favicon.webp' | relative_url }}" type="image/png">
 <title>
     {% if page.title %}
     {{ page.title }} | {{ site.title }}
@@ -50,7 +50,7 @@
         "@type": "{% if page.layout == 'post' %}BlogPosting{% else %}WebSite{% endif %}",
         "headline": {{ page.title | jsonify }},
         "description": {% if page.description %}{{ page.description | normalize_whitespace | strip | jsonify }}{% else %}{{ content | strip_html | normalize_whitespace | strip | truncate: 160 | jsonify }}{% endif %},
-        "image": "{{ site.url }}{{ page.image | default: '/assets/img/2023/06/lisa-favicon.png' }}",
+        "image": "{{ site.url }}{{ page.image | default: '/assets/img/2023/06/lisa-favicon.webp' }}",
         "author": {
             "@type": "Person",
             "name": "{{ site.author.name | default: site.title }}"
@@ -64,7 +64,7 @@
             "name": "{{ site.title }}",
             "logo": {
                 "@type": "ImageObject",
-                "url": "{{ site.url }}/assets/img/2023/06/lisa-favicon.png"
+                "url": "{{ site.url }}/assets/img/2023/06/lisa-favicon.webp"
             }
         },
         "mainEntityOfPage": {

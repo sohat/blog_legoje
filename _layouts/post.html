@@ -8,7 +8,7 @@ layout: default
 
                 {% if page.image %}
                 <div class="featured-image page-header-image-single grid-container grid-parent">
-                    <img loading="lazy" width="400" height="400" src="{{ page.image }}" class="attachment-full size-full wp-post-image" alt="{{ page.title }}" itemprop="image" decoding="async">
+                    <img fetchpriority="high" width="400" height="400" src="{{ page.image }}" class="attachment-full size-full wp-post-image" alt="{{ page.title }}" itemprop="image" decoding="async">
                 </div>
                 {% endif %}
 
@@ -29,6 +29,11 @@ layout: default
                         </span>
                     </div>
                 </header>
+
+                <div class="ad-container-post-top" style="margin: 24px 0;">
+                    {% include adsense.html %}
+                </div>
+
                 <div class="entry-content" itemprop="text">
                     {% include toc.html %}
                     {{ content }}

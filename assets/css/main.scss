@@ -7,3 +7,18 @@
 @import "footer";
 @import "content";
 @import "custom";
+
+/* [로딩 속도 최적화] 포스트 본문 내 이미지 비율 유지 및 흔들림 방지, 썸네일 전용 최적화: 정사각형 비율 고정 */
+.post-content img, .entry-content img {
+  aspect-ratio: attr(width) / attr(height); /* 이미지 태그에 적힌 비율 우선 적용 */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  background-color: #f7f7f7; /* 이미지가 뜨기 전 연한 회색 박스로 자리 확보 */
+}
+
+.attachment-full.size-full.wp-post-image {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}

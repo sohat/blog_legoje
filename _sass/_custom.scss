@@ -105,14 +105,24 @@ TICKET STYLING & COUPON EFFECT
 }
 
 .ticket-container .ticket ul {
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 15px;
+    padding: 0 !important;
+    list-style: none !important;
 }
 
 .ticket-container .ticket ul li {
-    font-size: 16px !important;
+    font-size: 15px !important;
     list-style: none !important;
-    padding-bottom: 10px;
+    padding-bottom: 0;
     padding-left: 0 !important;
     margin-left: 0 !important;
+    line-height: 1;
+    display: flex;
+    align-items: center;
 }
 
 .ticket-container ul li::before {
@@ -146,6 +156,8 @@ TICKET STYLING & COUPON EFFECT
     text-align: center;
     text-decoration: none;
     margin-top: auto;
+    font-weight: 800;
+    color: white;
 }
 
 .ticket-container .ticket .button.green {
@@ -158,7 +170,6 @@ TICKET STYLING & COUPON EFFECT
 
 .ticket-container .ticket .button.red {
     background-color: #E03A3E;
-    color: white;
 }
 
 .ticket-container .ticket .button::before {
@@ -563,13 +574,14 @@ center .custom-button1-container {
 
 /* 기존 promo-box 구조를 유지한 스타일 업데이트 */
 .promo-container {
-    background: #fffaf5; /* 옅은 주황색 배경 */
-    border: 1px solid #ffeada; /* 부드러운 테두리 */
+    background: #fffaf5;
+    border: 1px solid #ffeada;
     border-radius: 12px;
     padding: 25px;
     margin: 2.5rem 0;
     position: relative;
     overflow: hidden;
+    width: 80%;
 }
 
 /* 오른쪽 상단 미세한 광채 효과 (밝은 톤에 맞춰 조정) */
@@ -650,6 +662,32 @@ center .custom-button1-container {
 
 .promo-copy-btn:hover { background: #e67a00; }
 .promo-copy-btn.copied { background: #22c55e; } /* 복사 완료 시 초록색 */
+
+
+/* promo-code-link-box 스타일 */
+.promo-link-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.promo-link-btn {
+    background-color: #468500; /* 아이허브 시그니처 초록색 */
+    color: #ffffff !important;
+    padding: 10px 22px;
+    border-radius: 30px; /* 세련된 라운드 스타일 */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 700;
+    font-size: 18px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+}
+
+.promo-link-btn .material-symbols-outlined {
+    font-size: 18px;
+}
 
 @media (max-width: 768px) {
     .promo-content { flex-direction: column; text-align: center; }

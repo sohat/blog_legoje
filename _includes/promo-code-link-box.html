@@ -1,0 +1,19 @@
+<div class="promo-container">
+    <a href="{{ include.url }}" target="_blank" rel="noopener" style="text-decoration: none; color: inherit; display: block;">
+        <div class="promo-content">
+            <div class="promo-info">
+                {% if include.label %}<span class="promo-label">{{ include.label }}</span>{% endif %}
+                <div class="promo-title">{{ include.title }}</div>
+                <p class="promo-desc">{{ include.desc }}</p>
+            </div>
+            <div class="promo-action">
+                <div class="promo-link-wrapper">
+                    <div class="promo-link-btn">
+                        <span class="promo-link-text">{{ include.btn_text | default: "혜택 받기" }}</span>
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</div>

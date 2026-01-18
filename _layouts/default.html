@@ -3,22 +3,23 @@
 <!DOCTYPE html>
 <html lang="ko-KR">
 <head>
-{% include head.html %}
+    {% include head.html %}
 </head>
 <body class="{{ page.layout }} wp-custom-logo wp-embed-responsive wp-theme-generatepress no-sidebar nav-below-header separate-containers header-aligned-left dropdown-hover">
-    <a class="screen-reader-text skip-link" href="#content">Skip to content</a>
+<a class="screen-reader-text skip-link" href="#content">Skip to content</a>
 
-    {% include header.html %}
-    {% include nav.html %}
+{% include header.html %}
+{% include nav.html %}
 
-    <div class="site grid-container container" id="page">
-        <div class="site-content" id="content">
-            {{ content }}
-        </div>
+<div class="site grid-container container" id="page">
+    <div class="site-content" id="content">
+        {{ content }}
     </div>
+</div>
 
-    {% include footer.html %}
-    <script src="{{ '/assets/js/menu.js' | relative_url }}"></script>
-    <script src="{{ '/assets/js/toc.js' | relative_url }}"></script>
+{% include footer.html %}
+
+<script src="{{ '/assets/js/menu.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/toc.js' | relative_url }}" defer></script>
 </body>
 </html>

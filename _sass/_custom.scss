@@ -690,8 +690,17 @@ center .custom-button1-container {
 }
 
 @media (max-width: 768px) {
-    .promo-content { flex-direction: column; text-align: center; }
-    .promo-code-wrapper { width: 100%; justify-content: space-between; }
+    .promo-container {
+        width: 100%;
+    }
+    .promo-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .promo-code-wrapper {
+        width: 100%;
+        justify-content: space-between;
+    }
 }
 
 

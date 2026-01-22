@@ -82,10 +82,10 @@
         navElement.style.setProperty('display', 'block', 'important');
     }
 
-    // [핵심] 페이지의 모든 리소스(이미지, 다른 JS)가 로드된 후 실행
-    if (document.readyState === 'complete') {
-        buildTOC();
+    // [핵심] DOM 파싱 완료 즉시 실행 (이미지 로드 기다리지 않음)
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', buildTOC);
     } else {
-        window.addEventListener('load', buildTOC);
+        buildTOC();
     }
 })();

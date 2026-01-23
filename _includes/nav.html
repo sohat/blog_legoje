@@ -11,20 +11,20 @@
             <ul id=menu-menu class=" menu sf-menu">
                 {% assign is_financial = false %}
                 {% if page.url contains '/category/financial-and-investment' %}{% assign is_financial = true %}{% endif %}
-                {% if page.categories contains '나의 경제 생활' or page.categories contains '이벤트' or page.categories contains '할인코드 & 추천코드' or page.categories contains '멤버십 혜택' %}{% assign is_financial = true %}{% endif %}
+                {% if page.categories contains '나의 경제 생활' or page.categories contains '쇼핑 & 지출 가이드' or page.categories contains '할인코드 & 추천코드' or page.categories contains '멤버십 & 할인 혜택' %}{% assign is_financial = true %}{% endif %}
                 <li id=menu-item-3731
                     class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-3731{% if is_financial %} current-menu-item current-menu-ancestor{% endif %}">
                     <a href="{{ '/category/financial-and-investment/' | relative_url }}">나의 경제 생활<span role=presentation class=dropdown-menu-toggle><span class="gp-icon icon-arrow"><svg viewbox="0 0 330 512" aria-hidden=true xmlns=http://www.w3.org/2000/svg width=1em height=1em><path d="M305.913 197.085c0 2.266-1.133 4.815-2.833 6.514L171.087 335.593c-1.7 1.7-4.249 2.832-6.515 2.832s-4.815-1.133-6.515-2.832L26.064 203.599c-1.7-1.7-2.832-4.248-2.832-6.514s1.132-4.816 2.832-6.515l14.162-14.163c1.7-1.699 3.966-2.832 6.515-2.832 2.266 0 4.815 1.133 6.515 2.832l111.316 111.317 111.316-111.317c1.7-1.699 4.249-2.832 6.515-2.832s4.815 1.133 6.515 2.832l14.162 14.163c1.7 1.7 2.833 4.249 2.833 6.515z"/></svg></span></span></a>
                     <ul class=sub-menu>
                         <li id=menu-item-5104
-                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5104{% if page.url == '/category/financial-and-investment/event/' or page.categories contains '이벤트' %} current-menu-item{% endif %}"><a
-                                href="{{ '/category/financial-and-investment/event/' | relative_url }}">이벤트</a></li>
+                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5104{% if page.url == '/category/financial-and-investment/shopping/' or page.categories contains '쇼핑 & 지출 가이드' %} current-menu-item{% endif %}"><a
+                                href="{{ '/category/financial-and-investment/shopping/' | relative_url }}">쇼핑 &amp; 지출 가이드</a></li>
                         <li id=menu-item-5135
                             class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5135{% if page.url == '/category/financial-and-investment/promo-code/' or page.categories contains '할인코드 & 추천코드' %} current-menu-item{% endif %}"><a
                                 href="{{ '/category/financial-and-investment/promo-code/' | relative_url }}">할인코드 &amp; 추천코드</a></li>
                         <li id=menu-item-5136
-                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5136{% if page.url == '/category/financial-and-investment/membership/' or page.categories contains '멤버십 혜택' %} current-menu-item{% endif %}"><a
-                                href="{{ '/category/financial-and-investment/membership/' | relative_url }}">멤버십 혜택</a></li>
+                            class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-5136{% if page.url == '/category/financial-and-investment/membership/' or page.categories contains '멤버십 & 할인 혜택' %} current-menu-item{% endif %}"><a
+                                href="{{ '/category/financial-and-investment/membership/' | relative_url }}">멤버십 &amp; 할인 혜택</a></li>
                     </ul>
                 </li>
                 {% assign is_interest = false %}

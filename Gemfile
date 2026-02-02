@@ -15,6 +15,7 @@ group :jekyll_plugins do
   gem "jekyll-seo-tag"
   gem "jekyll-sitemap"
   gem "jekyll-include-cache" # 빌드 속도 향상을 위한 캐시 플러그인 추가
+  gem "jekyll-redirect-from" # URL 리다이렉트 처리
 end
 
 # Windows 환경 호환성 설정

@@ -33,13 +33,22 @@ blog_legoje/
 │   ├── analytics.html       # Google Analytics
 │   └── adsense.html         # Google AdSense
 ├── _posts/                  # 블로그 포스트 (~139개)
-│   └── YYYY-MM-DD-slug.html # 포스트 파일 (front matter + HTML 콘텐츠)
+│   ├── financial-and-investment/
+│   │   ├── membership/      # 멤버십 & 할인 혜택
+│   │   ├── shopping/        # 쇼핑 & 지출 가이드
+│   │   ├── promo-code/      # 할인코드 & 추천코드
+│   │   ├── finance/         # 금융상품 & 재테크
+│   │   └── policy/          # 정부지원 & 정책
+│   └── interest/            # 나의 문화 생활
 ├── category/                # 카테고리 페이지
 │   ├── financial-and-investment.html  # 나의 경제 생활
 │   ├── interest.html                   # 나의 문화 생활
 │   └── financial-and-investment/
-│       ├── event.html                  # 이벤트 (서브카테고리)
-│       └── promo-code.html             # 할인코드 & 추천코드 (서브카테고리)
+│       ├── shopping.html               # 쇼핑 & 지출 가이드 (서브카테고리)
+│       ├── promo-code.html             # 할인코드 & 추천코드 (서브카테고리)
+│       ├── membership.html             # 멤버십 & 할인 혜택 (서브카테고리)
+│       ├── finance.html                # 금융상품 & 재테크 (서브카테고리)
+│       └── policy.html                 # 정부지원 & 정책 (서브카테고리)
 ├── assets/
 │   └── css/
 │       ├── combined.css     # 메인 CSS (리셋, WP블록, 테마, TOC, 커스텀)
@@ -60,9 +69,9 @@ blog_legoje/
 layout: post
 title: "포스트 제목"
 date: 2024-07-16
-image: "/wp-content/uploads/2024/07/thumbnail.webp"
+image: "/assets/img/2024/07/thumbnail.webp"
 categories:
-  - "나의 경제 생활"
+  - "쇼핑 & 지출 가이드"
 tags:
   - "태그1"
   - "태그2"
@@ -71,8 +80,11 @@ tags:
 
 ### 카테고리 구조
 - **나의 경제 생활** (`financial-and-investment`)
-  - 이벤트 (`event`)
+  - 쇼핑 & 지출 가이드 (`shopping`)
   - 할인코드 & 추천코드 (`promo-code`)
+  - 멤버십 & 할인 혜택 (`membership`)
+  - 금융상품 & 재테크 (`finance`)
+  - 정부지원 & 정책 (`policy`)
 - **나의 문화 생활** (`interest`)
 
 ## CSS 구조

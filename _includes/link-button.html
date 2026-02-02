@@ -1,0 +1,17 @@
+<center>
+    <a class="custom-button1-a-attribute"
+       href="{{ include.url }}" target="_blank"
+       rel="noopener noreferrer">
+        <div class="custom-button1-container" style="max-width:{{ include.max_width | default: '500px' }};">
+            {% if include.img %}
+            <div class="custom-button1-img-container">
+                <img src="{{ include.img }}" alt="{{ include.img_alt | default: '로고' }}" style="width:{{ include.img_width | default: '50px' }}; height:auto;">
+            </div>
+            {% endif %}
+            <div class="custom-button1-text-container">
+                <span class="first-line">{{ include.title }}</span>
+                <span class="second-line">{% if include.underline %}<span class="underline">{{ include.underline }}</span> {% endif %}{{ include.desc }}</span>
+            </div>
+        </div>
+    </a>
+</center>

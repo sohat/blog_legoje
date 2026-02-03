@@ -194,6 +194,30 @@ TICKET STYLING & COUPON EFFECT
     border-bottom: 10px solid #E03A3E;
 }
 
+.payco-section .inactive-notice { display: none; }
+
+/* 2. 비활성화(is-inactive) 상태일 때 스타일 */
+/* 페이코 관련 텍스트와 티켓만 흐리게 + 취소선 */
+.payco-section.is-inactive .payco-target {
+  text-decoration: line-through;
+  color: #aaa !important;
+  opacity: 0.5;
+  pointer-events: none; /* 클릭 막기 */
+}
+
+/* 비활성화일 때만 안내 문구 노출 */
+.payco-section.is-inactive .inactive-notice {
+  display: block;
+  background-color: #fff5f5;
+  border: 1px solid #feb2b2;
+  color: #c53030;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  text-decoration: none !important;
+}
+
 /* 모바일 대응 */
 @media (max-width: 600px) {
     .ticket-container {

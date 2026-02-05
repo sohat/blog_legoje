@@ -23,11 +23,8 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.1'
-      - name: Install dependencies
-        run: |
-          bundle lock --add-platform x86_64-linux
-          bundle install
+          ruby-version: '3.2' # 버전을 3.2로 올려보세요
+          bundler-cache: true # 의존성 관리를 자동화합니다
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4

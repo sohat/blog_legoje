@@ -59,42 +59,11 @@ desc="{{ 초대코드혜택 }}"
 <h3 class=wp-block-heading>{{ 서비스명 }} 앱 다운로드</h3>
 <p>먼저 {{ 서비스명 }} 앱을 다운로드 해주세요. <br>{{ 서비스명 }}은 PC, 모바일 웹으로도 가능하나 편리하게 최대할인을 적용하시려면 앱을 설치하시는 것을 추천드립니다. (앱에서만 적용되는 쿠폰이 있습니다.)</p>
 <p class=has-medium-font-size>다운로드 후 ⭐<strong class=red>회원가입시 초대 코드를 입력</strong>⭐하셔야 추가 쿠폰을 받으실 수 있습니다!</p>
-<div class="app-download-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;">
-    <a class="custom-button1-a-attribute" href="{{ iOS링크 }}" target="_blank" rel="noopener">
-        <div class="custom-button1-container" style="max-width:250px; margin: 0;">
-            <div class="custom-button1-img-container">
-                <svg xmlns="http://www.w3.org/2000/svg" width="35px" height="35px" viewBox="0 0 800 800">
-                    <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="400" y1="800" x2="400" y2="0">
-                        <stop offset="0" style="stop-color:#18BFFB" /><stop offset="1" style="stop-color:#2072F3"/>
-                    </linearGradient>
-                    <path fill="url(#SVGID_1_)" d="M638.4,0H161.6C72.3,0,0,72.3,0,161.6v476.9C0,727.7,72.3,800,161.6,800h476.9c89.2,0,161.6-72.3,161.6-161.6V161.6C800,72.3,727.7,0,638.4,0z"/>
-                    <path fill="#FFFFFF" d="M396.6,183.8l16.2-28c10-17.5,32.3-23.4,49.8-13.4s23.4,32.3,13.4,49.8L319.9,462.4h112.9c36.6,0,57.1,43,41.2,72.8H143c-20.2,0-36.4-16.2-36.4-36.4c0-20.2,16.2-36.4,36.4-36.4h92.8l118.8-205.9l-37.1-64.4c-10-17.5-4.1-39.6,13.4-49.8c17.5-10,39.6-4.1,49.8,13.4L396.6,183.8z M256.2,572.7l-35,60.7c-10,17.5-32.3,23.4-49.8,13.4S148,614.5,158,597l26-45C213.4,542.9,237.3,549.9,256.2,572.7z M557.6,462.6h94.7c20.2,0,36.4,16.2,36.4,36.4c0,20.2-16.2,36.4-36.4,36.4h-52.6l35.5,61.6c10,17.5,4.1,39.6-13.4,49.8c-17.5,10-39.6,4.1-49.8-13.4c-59.8-103.7-104.7-181.3-134.5-233c-30.5-52.6-8.7-105.4,12.8-123.3C474.2,318.1,509.9,380,557.6,462.6z"/>
-                </svg>
-            </div>
-            <div class="custom-button1-text-container">
-                <span class="first-line">iOS - App 스토어</span>
-                <span class="second-line">{{ 서비스명 }} 다운로드</span>
-            </div>
-        </div>
-    </a>
-
-    <a class="custom-button1-a-attribute" href="{{ Android링크 }}" target="_blank" rel="noopener">
-        <div class="custom-button1-container" style="max-width:250px; margin: 0;">
-            <div class="custom-button1-img-container">
-                <svg xmlns="http://www.w3.org/2000/svg" width="35px" height="35px" viewBox="0 0 512 512">
-                    <path fill="#4CAF50" d="M100.3,31.7c-8.7,9.1-14,22.7-14,39.5v370.4c0,16.8,5.3,30.3,14,39.5l2.1,2.1L305.5,278.4V251L102.4,29.6L100.3,31.7z"/>
-                    <path fill="#FFC107" d="M371.7,345.5l-66.2-67.1V251l66.2-67.1l2.1,1.2l78.4,44.5c22.4,12.7,22.4,33.6,0,46.3l-78.4,44.5L371.7,345.5z"/>
-                    <path fill="#FF3D00" d="M373.8,346.7L305.5,278.4L100.3,483.7c7.4,7.8,19.6,8.8,33.1,1.1L373.8,346.7z"/>
-                    <path fill="#1976D2" d="M373.8,165.3L133.4,28.8c-13.5-7.7-25.7-6.7-33.1,1.1L305.5,233.6L373.8,165.3z"/>
-                </svg>
-            </div>
-            <div class="custom-button1-text-container">
-                <span class="first-line">Android - 구글 플레이</span>
-                <span class="second-line">{{ 서비스명 }} 다운로드</span>
-            </div>
-        </div>
-    </a>
-</div>
+{% include app-download-button.html
+    ios_url="{{ iOS링크 }}"
+    android_url="{{ Android링크 }}"
+    app_name="{{ 서비스명 }}"
+%}
 
 <!-- h2 > 신규회원 혜택 -->
 <h2 class="wp-block-heading">🎁 신규 회원 가입 혜택</h2>
@@ -114,19 +83,12 @@ desc="{{ 초대코드혜택 }}"
 
 <!-- 신규가입 혜택링크 바로가기 -->
 {% if 신규혜택링크 %}
-<div style="display: flex; justify-content: center; margin: 20px 0;">
-    <a class="custom-button1-a-attribute"
-       href="{{ 초대링크 | 신규혜택링크 }}"
-       target="_blank"
-       rel="noopener noreferrer">
-        <div class="custom-button1-container" style="max-width:650px;">
-            <div class="custom-button1-text-container">
-                <span class="first-line">{{ 서비스명 }}</span>
-                <span class="second-line">신규가입 쿠폰팩 확인하기</span>
-            </div>
-        </div>
-    </a>
-</div>
+{% include link-button.html
+    url="{{ 신규혜택링크 }}"
+    title="{{ 서비스명 }}"
+    desc="신규가입 쿠폰팩 확인하기"
+    max_width="650px"
+%}
 {% endif %}
 
 <!-- 신규회원 혜택 리스트 -->

@@ -194,57 +194,52 @@ TICKET STYLING & COUPON EFFECT
     border-bottom: 10px solid #E03A3E;
 }
 
-
-/* 아이허브 페이코 */
-.payco-section .inactive-notice { display: none; }
-
-/* 페이코 관련 텍스트와 티켓만 흐리게 + 취소선 */
-.payco-section.is-inactive .payco-target {
-  text-decoration: line-through;
-  color: #aaa !important;
-  opacity: 0.5;
-  pointer-events: none; /* 클릭 막기 */
+/* =================================================
+   UNIFIED PAYCO COUPON SECTION
+   ================================================ */
+.payco-coupon-section {
+  margin-bottom: 30px;
 }
 
-/* 비활성화일 때만 안내 문구 노출 */
-.payco-section.is-inactive .inactive-notice {
+/* 상태 공지 박스 공통 */
+.payco-coupon-section .notice-box {
+  display: none; /* 기본적으로 숨김 */
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* [이벤트 모드] 공지 (빨간색) */
+.payco-coupon-section.is-event .event-notice {
   display: block;
   background-color: #fff5f5;
   border: 1px solid #feb2b2;
   color: #c53030;
-  padding: 12px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  font-weight: bold;
-  text-decoration: none !important;
 }
 
-/* 덴프스 페이코 */
-/* 기본 상태: 이벤트 관련 문구와 티켓은 숨김 */
-.payco-denps-wrapper .denps-event-notice { display: none; }
-.payco-denps-wrapper .denps-event-only { display: none; }
-.payco-denps-wrapper .denps-normal-only { display: block; }
-.payco-denps-wrapper .inactive-notice { display: none; }
-
-/* [할인업 이벤트 기간] event-active 클래스 추가 시 */
-.payco-denps-wrapper.event-active .denps-event-notice {
+/* [쿠폰 종료 모드] 공지 (회색) */
+.payco-coupon-section.is-inactive .inactive-notice {
   display: block;
-  background-color: #fff5f5;
-  border: 1px solid #feb2b2;
-  color: #c53030;
-  padding: 12px;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  font-weight: bold;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  color: #666;
 }
-.payco-denps-wrapper.event-active .denps-normal-only { display: none; }
-.payco-denps-wrapper.event-active .denps-event-only { display: block; }
 
-/* [모든 쿠폰 종료 시] is-inactive 클래스 추가 시 */
-.payco-denps-wrapper.is-inactive .inactive-notice { display: block; }
-.payco-denps-wrapper.is-inactive .payco-content {
+/* 티켓 토글 로직 */
+.payco-coupon-section .event-ticket { display: none; } /* 이벤트 티켓 기본 숨김 */
+
+/* 이벤트 모드일 때: 일반 티켓 숨기고 이벤트 티켓 노출 */
+.payco-coupon-section.is-event .normal-ticket { display: none; }
+.payco-coupon-section.is-event .event-ticket { display: flex; width: 100%; max-width: 500px; margin: 0 auto; }
+
+/* 비활성화 모드일 때: 전체 흐리게 및 클릭 방지 */
+.payco-coupon-section.is-inactive .payco-content {
   opacity: 0.5;
   pointer-events: none;
+  filter: grayscale(1);
   text-decoration: line-through;
 }
 

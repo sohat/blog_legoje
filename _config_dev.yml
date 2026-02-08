@@ -9,3 +9,6 @@ sass:
 env: "development"
 incremental: true
 url: "http://localhost:4000"
+
+# 미래 날짜로 예약된 포스팅도 로컬에서는 보이게 설정
+future: true

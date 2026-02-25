@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://legoje.com/sitemap.xml
+
+#DaumWebMasterTool:d88e614ebf46e6a673b298b4441a457aaeeff082f5d24e5ef8f344ab6f6da777:93xIHOhxihnp4yitsJD3hw==

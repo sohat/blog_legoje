@@ -264,11 +264,11 @@ div.entry-content > h5 {
 }
 
 /* 버튼 컨테이너 강제 중앙 및 수직 정렬 */
-.content-area div[style*="display: flex"] {
-    display: flex !important;
-    flex-direction: column !important; /* 가로가 아닌 세로로 쌓기 */
-    align-items: center !important;   /* 중앙 정렬 */
-    width: 100% !important;
+.content-area .custom-button1-container[style*="display: flex"] {
+  display: flex !important;
+  flex-direction: column; /* 가로가 아닌 세로로 쌓기 */
+  align-items: center !important;   /* 중앙 정렬 */
+  width: 100% !important;
 }
 
 /* 개별 버튼(a 태그) 가로폭 확장 */

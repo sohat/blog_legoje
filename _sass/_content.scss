@@ -287,6 +287,53 @@ div.entry-content > h5 {
     margin: 0;
 }
 
+/* Info Box 공통 스타일 */
+.content-area .info-box {
+  padding: 1.25rem;
+  border-radius: 10px;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+
+  // 기본 스타일 (회색/일반 정보)
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+
+  strong {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  // 변형 1: 경고/주의 (빨간색)
+  &.warning {
+    background-color: #fff5f5;
+    border-color: #feb2b2;
+    color: #c53030;
+
+    strong {
+      color: #e53e3e;
+    }
+  }
+
+  // 변형 2: 팁/가이드 (하늘색)
+  &.tip {
+    background-color: #f0f4ff;
+    border: none;
+    border-left: 5px solid #339af0;
+    color: #1c7ed6;
+  }
+
+  // 변형 3: 핵심 요약 (체크리스트용)
+  &.summary {
+    background-color: #ffffff;
+    border: 1px dashed #adb5bd;
+  }
+}
+
+// 텍스트 강조용 (underline/red 클래스도 함께 관리하면 편합니다)
+.underline { text-decoration: underline; text-underline-offset: 4px; }
+.red { color: #e53e3e; font-weight: 600; }
+
 
 @media screen and (max-width: 768px) {
     .content-area table {

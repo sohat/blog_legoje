@@ -264,154 +264,112 @@ TICKET STYLING & COUPON EFFECT
     }
 }
 
+
 /* ==========================================================================
    커스텀 버튼 스타일
    ========================================================================== */
 
-/* [추가] center 태그 내부의 버튼을 수직 정렬하고 길게 늘리는 설정 */
-center .custom-button1-a-attribute {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    width: 100% !important;
+.custom-button1-a-attribute {
+  text-decoration: none;
+  display: flex;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: inherit;
+  cursor: pointer;
 }
 
-/* [추가] center 내부의 컨테이너를 가로로 확장 */
-center .custom-button1-container {
-    width: 100% !important;
-    max-width: 500px !important; /* 이미지와 비슷한 최적의 너비 */
-    margin: 10px 0 !important;   /* 버튼 사이 간격 */
-}
-
-/* 기존 컨테이너 스타일 */
 .custom-button1-container {
-    margin: 20px;
-    text-decoration: none;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    max-width: 600px;
-    height: auto;
-    background-color: #eaf6ff;
-    color: black;
-    border: 5px solid #2196f3;
-    border-radius: 100px;
-    padding: 20px 10px;
-    cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 500px;
+  max-width: 90vw;
+  background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
+  border: 2px solid #3182f6;
+  border-radius: 100px;
+  padding: 22px 50px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(49, 130, 246, 0.12);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-.custom-button1-container .custom-button1-img-container {
-    display: flex;
-    max-width: 20%;
-    height: auto;
-    flex-direction: row-reverse;
-    flex-wrap: nowrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
-}
-
-.custom-button1-container .custom-button1-text-container .second-line {
-    font-weight: 600;
-}
-
-.custom-button1-container .custom-button1-container.orange {
-    background-color: #fea931;
-    color: white;
-    font-weight: 600;
-    border: 3px solid #ffc200;
-    transition: all 0.2s linear 0s;
-}
-
-.custom-button1-container .custom-button1-container.orange:after {
-    content: "\2192";
-    font-size: 25px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    right: 0;
-    opacity: 0;
-    height: 100%;
-    width: 0;
-    transition: all 0.2s linear 0s;
-    text-shadow: -1px 0 #9d671e, 0 1px #9d671e, 1px 0 #9d671e, 0 -1px #9d671e;
-}
-
-.custom-button1-container .custom-button1-container.orange .custom-button1-text-container .first-line {
-    font-weight: 700;
-    font-size: 100%
-}
-
-.custom-button1-container .custom-button1-container.orange .custom-button1-text-container .second-line {
-    font-size: 120%;
-    font-weight: 700;
-    text-shadow: -1px 0 #9d671e, 0 1px #9d671e, 1px 0 #9d671e, 0 -1px #9d671e;
+/* 우측 하단 미니 버튼 (타원 곡률에 맞춰 위치 조정) */
+.custom-button1-container::after {
+  content: '확인하기 \203A';
+  position: absolute;
+  right: 35px;
+  bottom: 15px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #3182f6;
+  padding: 4px 12px;
+  border-radius: 50px; /* 미니 버튼도 타원형으로 통일 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
 }
 
 @media (hover: hover) {
-    .custom-button1-container:hover {
-        color: blue;
-        text-decoration: underline;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07),
-        0 2px 4px rgba(0, 0, 0, 0.07),
-        0 4px 8px rgba(0, 0, 0, 0.07),
-        0 8px 16px rgba(0, 0, 0, 0.07),
-        0 16px 32px rgba(0, 0, 0, 0.07),
-        0 32px 64px rgba(0, 0, 0, 0.07);
-    }
-
-    .custom-button1-container.orange:hover {
-        background-color: #f28123;
-        color: white;
-        text-decoration: none;
-        box-shadow: none;
-        text-indent: -20px;
-    }
-
-    .custom-button1-container.orange:hover:after {
-        right: 0;
-        text-indent: 0px;
-        margin-left: 20px;
-        opacity: 1;
-    }
+  .custom-button1-container:hover {
+    transform: translateY(-5px);
+    background-color: #f0f7ff;
+    box-shadow: 0 15px 30px rgba(49, 130, 246, 0.2);
+  }
+  .custom-button1-container:hover::after {
+    background-color: #1a6ff3;
+    right: 30px; /* 호버 시 미세하게 이동 */
+  }
 }
 
-.custom-button1-a-attribute {
-    display: contents;
-    -webkit-box-pack: center;
-    text-decoration: none;
-    color: #333333;
+.custom-button1-container:active {
+  transform: scale(0.96);
 }
 
-.custom-button1-container .custom-button1-text-container {
-    display: flex;
-    height: auto;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+/* 이미지 및 텍스트 레이아웃 */
+.custom-button1-img-container {
+  margin-right: 20px;
+  flex-shrink: 0;
+  max-width: 70px;
 }
 
-.custom-button1-container .custom-button1-text-container .first-line {
-    font-size: 110%
+.custom-button1-text-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-bottom: 5px;
 }
 
-.custom-button1-container.orange .custom-button1-text-container .first-line {
-    font-weight: 700;
-    font-size: 122%
+.custom-button1-text-container .first-line {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #191f28;
+  margin-bottom: 2px;
 }
 
-.custom-button1-container.orange .custom-button1-text-container .second-line {
-    font-size: 158%;
-    font-weight: 800;
-    text-shadow: -1px 0 #9d671e, 0 1px #9d671e, 1px 0 #9d671e, 0 -1px #9d671e;
+.custom-button1-text-container .second-line {
+  font-size: 1rem;
+  color: #4e5968;
+  font-weight: 500;
 }
 
+/* Orange 버전 대응 (타원형 동일 적용) */
+.custom-button1-container.orange {
+  background: linear-gradient(135deg, #fffaf5 0%, #ffffff 100%);
+  border-color: #ff9500;
+}
+.custom-button1-container.orange::after { background-color: #ff9500; }
+
+@media (max-width: 768px) {
+  .custom-button1-container {
+    padding: 18px 30px;
+    border-radius: 80px;
+  }
+  .custom-button1-container::after { display: none; } /* 모바일은 깔끔하게 생략 가능 */
+}
 
 /* ==========================================================================
    목차 스타일 (TOC Component)

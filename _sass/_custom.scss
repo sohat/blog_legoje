@@ -266,13 +266,16 @@ TICKET STYLING & COUPON EFFECT
 
 
 /* ==========================================================================
-   커스텀 버튼 스타일
+   커스텀 버튼 스타일 (link-button, app-download-button)
    ========================================================================== */
 
+// link-button
+/* 링크 속성: 중앙 정렬 유지 및 최대 너비 제한 */
 .custom-button1-a-attribute {
   text-decoration: none;
   display: flex;
-  width: fit-content;
+  width: 100%; /* 부모 너비에 맞춤 */
+  max-width: 500px; /* 최대 크기는 기존 500px 유지 */
   margin-left: auto;
   margin-right: auto;
   margin-top: 30px;
@@ -281,11 +284,11 @@ TICKET STYLING & COUPON EFFECT
   cursor: pointer;
 }
 
+/* 버튼 본체: 500px 고정을 100% 가변으로 수정 */
 .custom-button1-container {
   display: flex;
   align-items: center;
-  width: 500px;
-  max-width: 90vw;
+  width: 100%; /* 핵심 수정: 고정 너비 해제 */
   background: linear-gradient(135deg, #f8fbff 0%, #ffffff 100%);
   border: 2px solid #3182f6;
   border-radius: 100px;
@@ -294,10 +297,10 @@ TICKET STYLING & COUPON EFFECT
   box-shadow: 0 4px 12px rgba(49, 130, 246, 0.12);
   position: relative;
   overflow: hidden;
-  box-sizing: border-box;
+  box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
 }
 
-/* 우측 하단 미니 버튼 (타원 곡률에 맞춰 위치 조정) */
+/* 우측 하단 미니 버튼 (확인하기) */
 .custom-button1-container::after {
   content: '확인하기 \203A';
   position: absolute;
@@ -308,7 +311,7 @@ TICKET STYLING & COUPON EFFECT
   color: #ffffff;
   background-color: #3182f6;
   padding: 4px 12px;
-  border-radius: 50px; /* 미니 버튼도 타원형으로 통일 */
+  border-radius: 50px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
 }
@@ -321,7 +324,7 @@ TICKET STYLING & COUPON EFFECT
   }
   .custom-button1-container:hover::after {
     background-color: #1a6ff3;
-    right: 30px; /* 호버 시 미세하게 이동 */
+    right: 30px;
   }
 }
 
@@ -333,7 +336,7 @@ TICKET STYLING & COUPON EFFECT
 .custom-button1-img-container {
   margin-right: 20px;
   flex-shrink: 0;
-  max-width: 70px;
+  max-width: 60px; /* 모바일 대응을 위해 살짝 축소 */
 }
 
 .custom-button1-text-container {
@@ -341,34 +344,139 @@ TICKET STYLING & COUPON EFFECT
   flex-direction: column;
   text-align: left;
   padding-bottom: 5px;
+  overflow: hidden; /* 텍스트 넘침 방지 */
 }
 
 .custom-button1-text-container .first-line {
-  font-size: 1.3rem;
+  font-size: 1.25rem; /* 1.3rem -> 1.25rem 미세 조정 */
   font-weight: 800;
   color: #191f28;
   margin-bottom: 2px;
+  white-space: nowrap; /* 제목은 한 줄 유지 */
+  overflow: hidden;
+  text-overflow: ellipsis; /* 너무 길면 말줄임표 */
 }
 
 .custom-button1-text-container .second-line {
-  font-size: 1rem;
+  font-size: 0.95rem; /* 1rem -> 0.95rem 미세 조정 */
   color: #4e5968;
   font-weight: 500;
 }
 
-/* Orange 버전 대응 (타원형 동일 적용) */
+/* Orange 버전 대응 */
 .custom-button1-container.orange {
   background: linear-gradient(135deg, #fffaf5 0%, #ffffff 100%);
   border-color: #ff9500;
 }
 .custom-button1-container.orange::after { background-color: #ff9500; }
 
-@media (max-width: 768px) {
+/* --- 모바일 최적화 수정 --- */
+@media (max-width: 480px) {
   .custom-button1-container {
-    padding: 18px 30px;
-    border-radius: 80px;
+    padding: 15px 25px; /* 패딩 축소하여 공간 확보 */
+    border-radius: 50px; /* 곡률 조정 */
   }
-  .custom-button1-container::after { display: none; } /* 모바일은 깔끔하게 생략 가능 */
+
+  .custom-button1-img-container {
+    margin-right: 15px;
+    max-width: 50px; /* 이미지 크기 축소 */
+  }
+
+  .custom-button1-text-container .first-line {
+    font-size: 1.1rem; /* 폰트 크기 축소 */
+  }
+
+  .custom-button1-text-container .second-line {
+    font-size: 0.85rem;
+  }
+
+  .custom-button1-container::after {
+    display: none; /* 좁은 모바일에서는 '확인하기' 버튼 숨김 */
+  }
+}
+
+// app-download-button
+/* 부모 컨테이너 */
+.app-download-container {
+  margin: 40px 0;
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+/* 링크 초기화 */
+.app-download-container a {
+  text-decoration: none !important;
+  display: inline-block;
+}
+
+/* 앱 버튼 본체: 모든 버튼 동일 스타일 (기존 last-child 스타일 기반) */
+.app-download-container .app-btn-box {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 3px solid #ccdaf3;
+  border-radius: 24px;
+  padding: 22px 40px;
+  min-width: 380px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+/* 호버 상태: 모든 버튼 공통 (강조 스타일) */
+.app-download-container .app-btn-box:hover {
+  border-color: #4A89F3; /* 호버 시 브랜드 블루로 변경 */
+  background: #f8fbff; /* 미세한 블루 배경 */
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(74, 137, 243, 0.15);
+}
+
+/* 아이콘 및 텍스트 레이아웃 */
+.app-download-container .app-btn-icon {
+  margin-right: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.app-download-container .app-btn-icon img,
+.app-download-container .app-btn-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.app-download-container .app-btn-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* 텍스트 크기 및 컬러 통일 */
+.app-download-container .app-btn-sub {
+  font-size: 18px;
+  font-weight: 500;
+  color: #64748b; /* 차분한 그레이 */
+  line-height: 1.2;
+}
+
+.app-download-container .app-btn-main {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a; /* 짙은 네이비/블랙 */
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+/* 모바일 대응 */
+@media (max-width: 480px) {
+  .app-download-container .app-btn-box {
+    min-width: 100%;
+    padding: 18px 30px;
+  }
+  .app-download-container .app-btn-main {
+    font-size: 22px;
+  }
 }
 
 /* ==========================================================================
